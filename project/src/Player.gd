@@ -42,3 +42,10 @@ func _get_inputs() -> void:
 		$JumpSound.play()
 		is_jumping = true
 		velocity.y = jump_speed
+		
+func _physics_process(delta) -> void:
+	_get_inputs()
+	velocity.y += gravity * delta
+	if is_jumping and is_on_floor() or is_jumping and is_on_ceiling():
+		is_jumping = false
+	velocity = move_and_slide(velocity, Vector2(0, -1))
