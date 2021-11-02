@@ -1,6 +1,6 @@
 extends Node2D
 
-const SPAWN_POSITION := Vector2(100,760)
+const SPAWN_POSITION := Vector2(496,460)
 
 var player : KinematicBody2D
 
