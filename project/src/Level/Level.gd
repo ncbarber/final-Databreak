@@ -10,6 +10,6 @@ func _ready():
 
 
 func _make_player() -> void:
-	player = load("res://src/Player.tscn").instance()
+	player = load("res://src/Player/Player.tscn").instance()
 	player.position = SPAWN_POSITION
 	call_deferred("add_child", player)

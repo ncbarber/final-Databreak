@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
 
-var jump_speed := -300
-var run_speed := 100
-var gravity := 300
+var jump_speed := -350
+var run_speed := 300
+var gravity := 400
 var velocity := Vector2()
 var is_jumping := false
 var lives_remaining := 3
