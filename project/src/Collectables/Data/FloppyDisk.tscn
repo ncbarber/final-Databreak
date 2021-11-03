@@ -46,11 +46,13 @@ extents = Vector2( 70.0995, 71.8365 )
 [node name="FloppyDisk" type="Area2D"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 7 )
 animation = "idle"
-frame = 1
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -2.38109, -4.7622 )
+position = Vector2( -0.396835, -3.57166 )
+scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 8 )
