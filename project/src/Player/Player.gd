@@ -48,7 +48,6 @@ func _get_inputs() -> void:
 	# Test code for getting jump animation to function
 	# if jump and is_on_floor():
 		# if animationDone == true and is_on_floor():
-
 		
 		
 func _physics_process(delta) -> void:
@@ -61,7 +60,7 @@ func _physics_process(delta) -> void:
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "jump":
-		print(1)
+		# print(1)
 		if $AnimatedSprite.frame == 5:
-			print(2)
+			# print(2)
 			animationDone = true
