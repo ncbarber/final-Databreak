@@ -4,7 +4,7 @@ signal player_hit
 
 
 var run_speed := 30
-var gravity := 400
+var gravity := 500
 var velocity := Vector2()
 var is_moving_left := false
 var direction = 1
