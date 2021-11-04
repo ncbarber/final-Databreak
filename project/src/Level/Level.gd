@@ -20,7 +20,7 @@ var usb_collected := 0
 
 func _ready():
 	_make_player()
-	_make_enemy()
+	#_make_enemy()
 	_make_USB()
 	_make_Floppy_Disk()
 	
