@@ -14,7 +14,7 @@ var floppy_collected := 0
 var usb_collected := 0
 
 
-func _ready():
+func _ready() -> void:
 	_make_player()
 	_make_enemy()
 	enemy_position = Vector2(3743,-1130)
@@ -31,7 +31,7 @@ func _ready():
 	_make_Floppy_Disk()
 	
 
-func _process(_delta):
+func _process(_delta) -> void:
 	# Exit Conditions
 	if floppy_collected == 3 and usb_collected == 1:
 		# You win
@@ -49,7 +49,7 @@ func _make_player() -> void:
 # When called creates an instance of an enemy at a specified position
 func _make_enemy() -> void:
 	enemy = load("res://src/Enemy/Enemy.tscn").instance()
-	var _connection = enemy.connect("player_hit", self, "register_hit")
+	var _connection = enemy.connect("player_hit", self, "_register_hit")
 	enemy.position = enemy_position
 	call_deferred("add_child", enemy)
 
@@ -70,12 +70,12 @@ func _make_Floppy_Disk() -> void:
 	call_deferred("add_child", floppy)
 
 
-func register_hit(body):
+func _register_hit(body) -> void:
 	if body == player:
 		var _game_over := get_tree().change_scene("res://src/ScreenEnd/ScreenEnd.tscn")
 
 
-func _on_USB_Entered(body, _usb):
+func _on_USB_Entered(body, _usb) -> void:
 	if body == player:
 		# Make note that data was collected
 		usb_collected += 1
@@ -84,7 +84,7 @@ func _on_USB_Entered(body, _usb):
 		
 
 
-func _on_Floppy_Entered(body, _floppy):
+func _on_Floppy_Entered(body, _floppy) -> void:
 	if body == player:
 		# Make note that data was collected
 		floppy_collected += 1

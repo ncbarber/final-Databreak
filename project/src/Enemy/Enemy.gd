@@ -14,7 +14,7 @@ var direction = 1
 var player : KinematicBody2D
 
 
-func _ready():
+func _ready() -> void:
 	if direction == 1:
 		$Sprite.flip_h = false
 
@@ -30,5 +30,5 @@ func _physics_process(delta) -> void:
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 
 
-func _on_Light_body_entered(body):
+func _on_Light_body_entered(body) -> void:
 	emit_signal("player_hit", body)
