@@ -35,7 +35,7 @@ func _process(_delta):
 	# Exit Conditions
 	if floppy_collected == 3 and usb_collected == 1:
 		# You win
-		var _game_over := get_tree().change_scene("res://src/ScreenEnd/ScreenEnd.tscn")
+		var _game_over := get_tree().change_scene("res://src/ScreenEnd/ScreenWin.tscn")
 		
 
 
