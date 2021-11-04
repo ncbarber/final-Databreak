@@ -26,7 +26,7 @@ For this first iteration of the final project, our group is pretty proud with wh
 - [X] C-6: The release demonstrates the core gameplay loop: the player can take actions that move them toward a goal.
 - [X] B-1: The <code>README.md</code> file contains a personal reflection on the iteration and self-evaluation, as defined above.
 - [X] B-2: The game runs without errors or warnings.
-- [ ] B-3: The source code and project structure comply with our adopted style guides.
+- [X] B-3: The source code and project structure comply with our adopted style guides.
 - [X] B-4: Clear progress has been made on the game with respect to the project plan.
 - [X] A-1: The source code contains no warnings. All warnings are properly addressed, not just ignored.
 - [X] A-2: The game includes the conventional player experience loop of title, gameplay, and ending.
