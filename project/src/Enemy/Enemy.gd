@@ -3,7 +3,7 @@ extends KinematicBody2D
 signal player_hit 
 
 
-var run_speed := 30
+var run_speed := 100
 var gravity := 500
 var velocity := Vector2()
 var is_moving_left := false

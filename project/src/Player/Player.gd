@@ -1,19 +1,12 @@
 extends KinematicBody2D
 
 
-var jump_speed := -1500
+var jump_speed := -1250
 var run_speed := 375
 var gravity := 3200
 var velocity := Vector2()
 var is_jumping := false
 var lives_remaining := 3
-var animationDone := false
-
-
-func _ready():
-	var level : Node2D = load("res://src/Level/Level.tscn").instance()
-	var _usb_connection := level.connect("usb_HUD_trigger", self, "usb_collected")
-	var _floppy_connection := level.connect("floppy_HUD_trigger", self, "floppy_collected", [level])
 
 
 func _get_inputs() -> void:
@@ -56,19 +49,6 @@ func _physics_process(delta) -> void:
 	if is_jumping and is_on_floor() or is_jumping and is_on_ceiling():
 		is_jumping = false
 	velocity = move_and_slide(velocity, Vector2(0, -1))
-
-
-func usb_HUD_trigger():
-	$Camera2D/HUD/USB.visible = false
-
-
-func floppy_HUD_trigger(num):
-	if num == 1:
-		$Camera2D/HUD/Floppy.visible = false
-	elif num == 2:
-		$Camera2D/HUD/Floppy2.visible = false
-	elif num == 3:
-		$Camera2D/HUD/Floppy3.visible = false
 
 
 #func _on_AnimatedSprite_animation_finished():
