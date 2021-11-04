@@ -9,6 +9,8 @@ var player : KinematicBody2D
 var enemy : KinematicBody2D
 var usb : Area2D
 var floppy : Area2D
+var floppy_collected := 0
+var usb_collected := 0
 
 
 func _ready():
@@ -16,6 +18,14 @@ func _ready():
 	_make_enemy()
 	_make_USB()
 	_make_Floppy_Disk()
+	
+
+func _process(_delta):
+	# Exit Conditions
+	if floppy_collected == 3 and usb_collected == 1:
+		# You win
+		var _game_over := get_tree().change_scene("res://src/ScreenEnd/ScreenEnd.tscn")
+		
 
 
 func _make_player() -> void:
@@ -51,11 +61,14 @@ func register_hit(body):
 
 func _on_USB_Entered(body, _usb):
 	if body == player:
+		# Make note that data was collected
+		usb_collected += 1
 		_usb.queue_free()
-		#Make note that data was collected
+		
 
 
 func _on_Floppy_Entered(body, _floppy):
 	if body == player:
+		# Make note that data was collected
+		floppy_collected += 1
 		_floppy.queue_free()
-		#Make note that data was collected

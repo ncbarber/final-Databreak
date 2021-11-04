@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DatabreakFlashlight.png-6115ed42633e0fda500fdad4efad7442.stex"
+path="res://.import/DatabreakBinary1Red.png-7b92a79e2577e58084c3c8072d0a3f75.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://platform_assets/DatabreakFlashlight.png"
-dest_files=[ "res://.import/DatabreakFlashlight.png-6115ed42633e0fda500fdad4efad7442.stex" ]
+source_file="res://platform_assets/DatabreakBinary1Red.png"
+dest_files=[ "res://.import/DatabreakBinary1Red.png-7b92a79e2577e58084c3c8072d0a3f75.stex" ]
 
 [params]
 
