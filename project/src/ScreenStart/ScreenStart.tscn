@@ -5,7 +5,7 @@
 [ext_resource path="res://platform_assets/DatabreakBinary1.png" type="Texture" id=3]
 [ext_resource path="res://platform_assets/DatabreakBinary0.png" type="Texture" id=4]
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
 emission_box_extents = Vector3( 500, 500, 1 )
 flag_disable_z = true
@@ -16,14 +16,14 @@ orbit_velocity_random = 0.0
 scale = 0.1
 scale_random = 0.01
 
-[sub_resource type="AnimatedTexture" id=4]
+[sub_resource type="AnimatedTexture" id=2]
 flags = 4
 frames = 2
 frame_0/texture = ExtResource( 3 )
 frame_1/texture = ExtResource( 4 )
 frame_1/delay_sec = 0.0
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 2
 emission_box_extents = Vector3( 500, 500, 1 )
 flag_disable_z = true
@@ -33,7 +33,7 @@ orbit_velocity_random = 0.0
 scale = 0.2
 scale_random = 0.1
 
-[sub_resource type="AnimatedTexture" id=6]
+[sub_resource type="AnimatedTexture" id=4]
 flags = 4
 frames = 2
 fps = 8.0
@@ -41,11 +41,11 @@ frame_0/texture = ExtResource( 4 )
 frame_1/texture = ExtResource( 3 )
 frame_1/delay_sec = 0.0
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=5]
 size = 58
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=6]
 size = 21
 font_data = ExtResource( 1 )
 
@@ -67,15 +67,15 @@ modulate = Color( 0.992157, 0.992157, 0.992157, 0.588235 )
 position = Vector2( 505.22, 323.347 )
 amount = 50
 randomness = 1.0
-process_material = SubResource( 3 )
-texture = SubResource( 4 )
+process_material = SubResource( 1 )
+texture = SubResource( 2 )
 
 [node name="BinaryParticleInverse" type="Particles2D" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )
 position = Vector2( 504.944, 320.081 )
 amount = 30
-process_material = SubResource( 5 )
-texture = SubResource( 6 )
+process_material = SubResource( 3 )
+texture = SubResource( 4 )
 
 [node name="GameOverLabel" type="Label" parent="."]
 anchor_left = 0.5
@@ -86,7 +86,7 @@ margin_left = -115.5
 margin_top = -96.0
 margin_right = 115.5
 margin_bottom = -22.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "DATABREAK"
 align = 1
 __meta__ = {
@@ -102,7 +102,7 @@ margin_left = -76.5
 margin_top = -256.41
 margin_right = 76.5
 margin_bottom = -182.41
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 6 )
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
