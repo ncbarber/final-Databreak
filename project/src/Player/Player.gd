@@ -48,8 +48,8 @@ func _get_inputs() -> void:
 	# Test code for getting jump animation to function
 	# if jump and is_on_floor():
 		# if animationDone == true and is_on_floor():
-		
-		
+
+
 func _physics_process(delta) -> void:
 	_get_inputs()
 	velocity.y += gravity * delta
