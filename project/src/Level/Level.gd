@@ -1,5 +1,10 @@
 extends Node2D
 
+
+signal usb_collected
+signal floppy_collected(number)
+
+
 const SPAWN_POSITION := Vector2(496,460)
 const ENEMY_POSITION := Vector2(1284,338)
 const USB_POSITION := Vector2(8, 380)
@@ -63,6 +68,7 @@ func _on_USB_Entered(body, _usb):
 	if body == player:
 		# Make note that data was collected
 		usb_collected += 1
+		emit_signal("usb_collected")
 		_usb.queue_free()
 		
 
@@ -71,4 +77,5 @@ func _on_Floppy_Entered(body, _floppy):
 	if body == player:
 		# Make note that data was collected
 		floppy_collected += 1
+		emit_signal("floppy_collected", floppy_collected)
 		_floppy.queue_free()

@@ -10,10 +10,10 @@ var lives_remaining := 3
 var animationDone := false
 
 
-# func _process(_delta):
-	# $Camera2D/LivesRemainingLabel.text = 'Lives Remaining: %d' % lives_remaining
-	# if Input.is_action_just_pressed("respawn"):
-	# 	lives_remaining -= 1
+func _ready():
+	var level : Node2D = load("res://src/Level/Level.tscn").instance()
+	var _usb_connection := level.connect("usb_HUD_trigger", self, "usb_collected")
+	var _floppy_connection := level.connect("floppy_HUD_trigger", self, "floppy_collected", [level])
 
 
 func _get_inputs() -> void:
@@ -58,9 +58,22 @@ func _physics_process(delta) -> void:
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 
 
-func _on_AnimatedSprite_animation_finished():
-	if $AnimatedSprite.animation == "jump":
-		# print(1)
-		if $AnimatedSprite.frame == 5:
-			# print(2)
-			animationDone = true
+func usb_HUD_trigger():
+	$Camera2D/HUD/USB.visible = false
+
+
+func floppy_HUD_trigger(num):
+	if num == 1:
+		$Camera2D/HUD/Floppy.visible = false
+	elif num == 2:
+		$Camera2D/HUD/Floppy2.visible = false
+	elif num == 3:
+		$Camera2D/HUD/Floppy3.visible = false
+
+
+#func _on_AnimatedSprite_animation_finished():
+#	if $AnimatedSprite.animation == "jump":
+#		# print(1)
+#		if $AnimatedSprite.frame == 5:
+#			# print(2)
+#			animationDone = true
