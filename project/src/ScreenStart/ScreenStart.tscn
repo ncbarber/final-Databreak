@@ -46,7 +46,7 @@ size = 58
 outline_size = 2
 font_data = ExtResource( 1 )
 
-[sub_resource type="Theme" id=7]
+[sub_resource type="Theme" id=6]
 BoxContainer/constants/separation = 4
 Button/colors/font_color = Color( 0, 0, 0, 1 )
 Button/colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -1296,7 +1296,7 @@ WindowDialog/icons/close = null
 WindowDialog/icons/close_highlight = null
 WindowDialog/styles/panel = null
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 30
 font_data = ExtResource( 1 )
 
@@ -1358,8 +1358,8 @@ margin_left = -76.5
 margin_top = -256.41
 margin_right = 76.5
 margin_bottom = -182.41
-theme = SubResource( 7 )
-custom_fonts/font = SubResource( 6 )
+theme = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color_disabled = Color( 0.458824, 0.0117647, 1, 1 )
 custom_colors/font_color = Color( 0.0196078, 1, 0.0392157, 1 )
 custom_colors/font_color_hover = Color( 0.458824, 0.0117647, 1, 1 )
