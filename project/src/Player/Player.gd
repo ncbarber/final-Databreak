@@ -14,7 +14,6 @@ func _get_inputs() -> void:
 	var right := Input.is_action_pressed('move_right')
 	var left := Input.is_action_pressed('move_left')
 	var jump := Input.is_action_just_pressed('jump')
-	#var jumpFinished := Input.is_action_just_released('jump')
 
 	if right:
 		velocity.x += run_speed
@@ -38,10 +37,6 @@ func _get_inputs() -> void:
 		is_jumping = true
 		velocity.y = jump_speed
 
-	# Test code for getting jump animation to function
-	# if jump and is_on_floor():
-		# if animationDone == true and is_on_floor():
-
 
 func _physics_process(delta) -> void:
 	_get_inputs()
@@ -49,11 +44,3 @@ func _physics_process(delta) -> void:
 	if is_jumping and is_on_floor() or is_jumping and is_on_ceiling():
 		is_jumping = false
 	velocity = move_and_slide(velocity, Vector2(0, -1))
-
-
-#func _on_AnimatedSprite_animation_finished():
-#	if $AnimatedSprite.animation == "jump":
-#		# print(1)
-#		if $AnimatedSprite.frame == 5:
-#			# print(2)
-#			animationDone = true

@@ -39,11 +39,14 @@ func _process(_delta):
 		
 
 
+# When called creates an instance of a player at whatever the spawn position is set to for the level
 func _make_player() -> void:
 	player = load("res://src/Player/Player.tscn").instance()
 	player.position = SPAWN_POSITION
 	call_deferred("add_child", player)
 	
+	
+# When called creates an instance of an enemy at a specified position
 func _make_enemy() -> void:
 	enemy = load("res://src/Enemy/Enemy.tscn").instance()
 	var _connection = enemy.connect("player_hit", self, "register_hit")
@@ -51,6 +54,7 @@ func _make_enemy() -> void:
 	call_deferred("add_child", enemy)
 
 
+# When called creates an instance of an USB collectable at a specified position
 func _make_USB() -> void:
 	usb = load("res://src/Collectables/Data/USB.tscn").instance()
 	var _connection := usb.connect("body_entered", self, "_on_USB_Entered", [usb])
@@ -58,6 +62,7 @@ func _make_USB() -> void:
 	call_deferred("add_child", usb)
 
 
+# When called creates an instance of an Floppy Disk collectable at a specified position
 func _make_Floppy_Disk() -> void:
 	floppy = load("res://src/Collectables/Data/FloppyDisk.tscn").instance()
 	var _connection := floppy.connect("body_entered", self, "_on_Floppy_Entered", [floppy])
