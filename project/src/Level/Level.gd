@@ -29,14 +29,13 @@ func _ready() -> void:
 	_make_Floppy_Disk()
 	floppy_position = Vector2(2241, -1105)
 	_make_Floppy_Disk()
-	
+
 
 func _process(_delta) -> void:
 	# Exit Conditions
 	if floppy_collected == 3 and usb_collected == 1:
 		# You win
 		var _game_over := get_tree().change_scene("res://src/ScreenEnd/ScreenWin.tscn")
-		
 
 
 # When called creates an instance of a player at whatever the spawn position is set to for the level
@@ -44,8 +43,8 @@ func _make_player() -> void:
 	player = load("res://src/Player/Player.tscn").instance()
 	player.position = SPAWN_POSITION
 	call_deferred("add_child", player)
-	
-	
+
+
 # When called creates an instance of an enemy at a specified position
 func _make_enemy() -> void:
 	enemy = load("res://src/Enemy/Enemy.tscn").instance()
@@ -81,7 +80,6 @@ func _on_USB_Entered(body, _usb) -> void:
 		usb_collected += 1
 		$HUD/USB.visible = false
 		_usb.queue_free()
-		
 
 
 func _on_Floppy_Entered(body, _floppy) -> void:

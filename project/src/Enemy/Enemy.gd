@@ -24,7 +24,7 @@ func _physics_process(delta) -> void:
 		$PatrolTimer.start()
 		direction = direction * -1
 		$Sprite.flip_h = !$Sprite.flip_h
-	
+
 	velocity.y += gravity * delta
 	velocity.x = run_speed * direction
 	velocity = move_and_slide(velocity, Vector2(0, -1))

@@ -9,7 +9,7 @@ var is_jumping := false
 var lives_remaining := 3
 
 
-func _get_inputs() -> void:
+func set_inputs() -> void:
 	velocity.x = 0
 	var right := Input.is_action_pressed('move_right')
 	var left := Input.is_action_pressed('move_left')
@@ -39,7 +39,7 @@ func _get_inputs() -> void:
 
 
 func _physics_process(delta) -> void:
-	_get_inputs()
+	set_inputs()
 	velocity.y += gravity * delta
 	if is_jumping and is_on_floor() or is_jumping and is_on_ceiling():
 		is_jumping = false
