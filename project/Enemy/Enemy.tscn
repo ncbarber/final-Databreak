@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Enemy/DatabreakEnemy-1.png_1.png" type="Texture" id=1]
+[ext_resource path="res://Enemy/Enemy.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 76.7367, 105.541 )
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 43.3255
+height = 176.377
+
+[node name="Enemy" type="KinematicBody2D"]
+position = Vector2( 494.212, 285.95 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 78.3416, -23.5969 )
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="PatrolTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="EnemyCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 79.5275, -0.793701 )
+shape = SubResource( 1 )
+
+[node name="Light" type="Area2D" parent="."]
+
+[node name="LightCollision" type="CollisionShape2D" parent="Light"]
+position = Vector2( 77.4207, -55.3955 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Light" to="." method="_on_Light_body_entered"]
