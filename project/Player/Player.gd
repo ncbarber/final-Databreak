@@ -18,17 +18,19 @@ func _set_inputs() -> void:
 	var jump := Input.is_action_just_released("jump")
 
 	if right:
-		velocity.x += run_speed
 		$AnimatedSprite.flip_h = false
-		if is_on_floor():
-			$AnimatedSprite.animation = "walk"
-			$AnimatedSprite.play()
+		if is_crouched != true:
+			velocity.x += run_speed
+			if is_on_floor():
+				$AnimatedSprite.animation = "walk"
+				$AnimatedSprite.play()
 	if left:
-		velocity.x -= run_speed
 		$AnimatedSprite.flip_h = true
-		if is_on_floor():
-			$AnimatedSprite.animation = "walk"
-			$AnimatedSprite.play()
+		if is_crouched != true:
+			velocity.x -= run_speed
+			if is_on_floor():
+				$AnimatedSprite.animation = "walk"
+				$AnimatedSprite.play()
 	if velocity.x == 0 and is_on_floor():
 		if is_crouched != true:
 			$AnimatedSprite.animation = "idle"
