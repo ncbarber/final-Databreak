@@ -13,7 +13,8 @@ func _set_inputs() -> void:
 	velocity.x = 0
 	var right := Input.is_action_pressed('move_right')
 	var left := Input.is_action_pressed('move_left')
-	var jump := Input.is_action_just_pressed('jump')
+	var crouch := Input.is_action_pressed('jump')
+	var jump := Input.is_action_just_released("jump")
 
 	if right:
 		velocity.x += run_speed
@@ -29,6 +30,10 @@ func _set_inputs() -> void:
 			$AnimatedSprite.play()
 	if velocity.x == 0 and is_on_floor():
 		$AnimatedSprite.animation = "idle"
+		$AnimatedSprite.play()
+		
+	if crouch and is_on_floor():
+		$AnimatedSprite.animation = "crouch"
 		$AnimatedSprite.play()
 		
 	if jump and is_on_floor():

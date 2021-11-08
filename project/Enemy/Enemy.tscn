@@ -7,8 +7,8 @@
 extents = Vector2( 76.7367, 105.541 )
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 43.3255
-height = 176.377
+radius = 55.1952
+height = 155.844
 
 [node name="Enemy" type="KinematicBody2D"]
 position = Vector2( 494.212, 285.95 )
