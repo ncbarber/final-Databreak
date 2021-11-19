@@ -40,6 +40,14 @@ func _set_inputs() -> void:
 		$AnimatedSprite.animation = "crouch"
 		$AnimatedSprite.play()
 		is_crouched = true
+		jump_speed = -1250		
+		if is_jumping == false:
+			yield(get_tree().create_timer(1.0), "timeout")
+			jump_speed = -1750
+			get_node("AnimatedSprite").set_modulate(Color(1, .5, .5))
+			if is_crouched == false:
+				get_node("AnimatedSprite").set_modulate(Color(1, 1, 1))
+		
 		
 	if jump and is_on_floor():
 		$AnimatedSprite.animation = "jump"
@@ -49,6 +57,7 @@ func _set_inputs() -> void:
 		velocity.y = jump_speed
 		
 	if !is_on_floor():
+		get_node("AnimatedSprite").set_modulate(Color(1, 1, 1))
 		$AnimatedSprite.animation = "jump"
 		$AnimatedSprite.play()
 
