@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
+[ext_resource path="res://Level/Databreat_LevelDoor1.png" type="Texture" id=1]
 [ext_resource path="res://Level/Rooms/RoomTwo/RoomTwo.gd" type="Script" id=2]
 [ext_resource path="res://Level/Databreak_LevelBlocks.png" type="Texture" id=3]
+[ext_resource path="res://Level/Databreat_LevelDoor2.png" type="Texture" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
@@ -18,7 +20,7 @@ points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 [sub_resource type="ConvexPolygonShape2D" id=11]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 
-[sub_resource type="TileSet" id=4]
+[sub_resource type="TileSet" id=12]
 1/name = "Databreak_LevelBlocks.png 1"
 1/texture = ExtResource( 3 )
 1/tex_offset = Vector2( 0, 0 )
@@ -125,53 +127,43 @@ points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
 } ]
 5/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 164.09, 130.314 )
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 84.4796, 118.097 )
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 136.209, 134.254 )
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 85.7629, 109.98 )
 
 [node name="RoomTwo" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -4999, -1 )
-tile_set = SubResource( 4 )
+tile_set = SubResource( 12 )
 cell_size = Vector2( 128, 128 )
 format = 1
 tile_data = PoolIntArray( -458713, 1, 0, -458712, 1, 0, -458711, 1, 0, -458710, 1, 0, -458709, 1, 0, -458708, 1, 0, -458707, 1, 0, -458706, 1, 0, -458705, 1, 0, -458704, 1, 0, -458703, 1, 0, -458702, 1, 0, -458701, 1, 0, -458700, 1, 0, -458699, 1, 0, -458698, 1, 0, -458697, 1, 0, -458696, 1, 0, -458695, 1, 0, -458694, 1, 0, -458693, 1, 0, -458692, 1, 0, -458691, 1, 0, -458690, 1, 0, -458689, 1, 0, -458688, 1, 0, -458687, 1, 0, -458686, 1, 0, -458685, 1, 0, -458684, 1, 0, -458683, 1, 0, -458682, 1, 0, -458681, 1, 0, -458680, 1, 0, -458679, 1, 0, -393177, 1, 0, -393143, 1, 0, -327641, 1, 0, -327607, 1, 0, -262105, 1, 0, -262071, 1, 0, -196569, 1, 0, -196541, 1, 0, -196540, 1, 0, -196539, 1, 0, -196538, 1, 0, -196537, 1, 0, -196536, 1, 0, -196535, 1, 0, -131033, 1, 0, -131032, 1, 0, -131031, 1, 0, -131030, 1, 0, -131029, 1, 0, -131028, 1, 0, -131027, 1, 0, -131026, 1, 0, -131025, 1, 0, -131006, 1, 0, -130999, 1, 0, -65497, 1, 0, -65488, 1, 0, -65470, 1, 0, -65463, 1, 0, 39, 1, 0, 49, 1, 0, 50, 1, 0, 51, 1, 0, 52, 1, 0, 53, 1, 0, 59, 5, 0, 60, 5, 0, 65, 1, 0, 66, 1, 0, 73, 1, 0, 65575, 1, 0, 65592, 3, 0, 65593, 2, 0, 65601, 1, 0, 65602, 1, 0, 65603, 1, 0, 65604, 1, 0, 65605, 1, 0, 65609, 1, 0, 131111, 1, 0, 131136, 1, 0, 131137, 1, 0, 131138, 1, 0, 131144, 1, 0, 131145, 1, 0, 196647, 1, 0, 196666, 1, 0, 196667, 1, 0, 196668, 1, 0, 196669, 1, 0, 196670, 1, 0, 196671, 1, 0, 196672, 1, 0, 196681, 1, 0, 262183, 1, 0, 262193, 1, 0, 262194, 1, 0, 262195, 1, 0, 262196, 1, 0, 262197, 1, 0, 262198, 1, 0, 262199, 1, 0, 262200, 1, 0, 262201, 1, 0, 262215, 1, 0, 262217, 1, 0, 327719, 1, 0, 327749, 1, 0, 327750, 1, 0, 327751, 1, 0, 327752, 1, 0, 327753, 1, 0, 393255, 1, 0, 393263, 1, 0, 393282, 1, 0, 393289, 1, 0, 458791, 1, 0, 458792, 1, 0, 458793, 1, 0, 458794, 1, 0, 458795, 1, 0, 458796, 1, 0, 458797, 1, 0, 458798, 1, 0, 458799, 1, 0, 458800, 1, 0, 458825, 1, 0, 524327, 1, 0, 524337, 1, 0, 524354, 1, 0, 524355, 1, 0, 524356, 1, 0, 524361, 1, 0, 589863, 1, 0, 589894, 1, 0, 589897, 1, 0, 655399, 1, 0, 655411, 1, 0, 655433, 1, 0, 720935, 1, 0, 720947, 1, 0, 720968, 1, 0, 720969, 1, 0, 786471, 1, 0, 786472, 1, 0, 786473, 1, 0, 786474, 1, 0, 786475, 1, 0, 786476, 1, 0, 786477, 1, 0, 786478, 1, 0, 786479, 1, 0, 786480, 1, 0, 786481, 1, 0, 786482, 1, 0, 786483, 1, 0, 786484, 1, 0, 786485, 1, 0, 786486, 1, 0, 786487, 1, 0, 786488, 1, 0, 786489, 1, 0, 786490, 1, 0, 786491, 1, 0, 786492, 1, 0, 786493, 1, 0, 786494, 1, 0, 786495, 1, 0, 786496, 1, 0, 786497, 1, 0, 786498, 1, 0, 786499, 1, 0, 786500, 1, 0, 786501, 1, 0, 786502, 1, 0, 786503, 1, 0, 786504, 1, 0, 786505, 1, 0 )
 
-[node name="Spawn" type="ColorRect" parent="."]
-margin_left = 175.182
-margin_top = -565.746
-margin_right = 504.182
-margin_bottom = -318.746
-color = Color( 0.0823529, 0.180392, 0.694118, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Spawn" type="Sprite" parent="."]
+position = Vector2( 282.511, -385.25 )
+texture = ExtResource( 1 )
 
 [node name="SpawnArea" type="Area2D" parent="Spawn"]
 position = Vector2( 160, 126.253 )
 
 [node name="SpawnCollision" type="CollisionShape2D" parent="Spawn/SpawnArea"]
-shape = SubResource( 5 )
+position = Vector2( -164.049, -100.409 )
+shape = SubResource( 13 )
 
-[node name="Door" type="ColorRect" parent="."]
-margin_left = 3628.18
-margin_top = -187.492
-margin_right = 3893.18
-margin_bottom = 81.5077
-color = Color( 0.870588, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Door" type="Sprite" parent="."]
+position = Vector2( 3738.18, -0.341034 )
+texture = ExtResource( 4 )
 
 [node name="DoorArea" type="Area2D" parent="Door"]
 position = Vector2( 128.262, 141.493 )
 
 [node name="DoorCollision" type="CollisionShape2D" parent="Door/DoorArea"]
-shape = SubResource( 6 )
+position = Vector2( -127.731, -124.892 )
+shape = SubResource( 14 )
 
 [connection signal="body_entered" from="Spawn/SpawnArea" to="." method="_on_SpawnArea_body_entered"]
 [connection signal="body_exited" from="Spawn/SpawnArea" to="." method="_on_SpawnArea_body_exited"]
