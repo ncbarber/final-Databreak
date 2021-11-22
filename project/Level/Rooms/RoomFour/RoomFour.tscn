@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Level/planetMid.png" type="Texture" id=1]
 [ext_resource path="res://Level/Rooms/RoomFour/RoomFour.gd" type="Script" id=2]
 [ext_resource path="res://Level/Databreak_LevelBlocks.png" type="Texture" id=3]
+[ext_resource path="res://Level/Databreat_LevelDoor1.png" type="Texture" id=4]
+[ext_resource path="res://Level/Databreat_LevelDoor2.png" type="Texture" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
@@ -157,10 +159,10 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 5/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 164.09, 130.314 )
+extents = Vector2( 83.1812, 111.413 )
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 136.209, 134.254 )
+extents = Vector2( 82.2354, 109.044 )
 
 [node name="RoomFour" type="Node2D"]
 script = ExtResource( 2 )
@@ -172,36 +174,26 @@ cell_size = Vector2( 128, 128 )
 format = 1
 tile_data = PoolIntArray( -393217, 2, 0, -458752, 2, 0, -458751, 2, 0, -458750, 2, 0, -458749, 2, 0, -458748, 2, 0, -458747, 2, 0, -458746, 2, 0, -458745, 2, 0, -458744, 2, 0, -458743, 2, 0, -458742, 2, 0, -458741, 2, 0, -458740, 2, 0, -458739, 2, 0, -458738, 2, 0, -458737, 2, 0, -458736, 2, 0, -458735, 2, 0, -458734, 2, 0, -458733, 2, 0, -458732, 2, 0, -458731, 2, 0, -458730, 2, 0, -458729, 2, 0, -458728, 2, 0, -458727, 2, 0, -458726, 2, 0, -458725, 2, 0, -458724, 2, 0, -458723, 2, 0, -458722, 2, 0, -458721, 2, 0, -458720, 2, 0, -458719, 2, 0, -327681, 2, 0, -393210, 2, 0, -393183, 2, 0, -262145, 2, 0, -327674, 2, 0, -327647, 2, 0, -196609, 2, 0, -262144, 2, 0, -262143, 2, 0, -262142, 2, 0, -262141, 2, 0, -262138, 2, 0, -262111, 2, 0, -131073, 2, 0, -196602, 2, 0, -196575, 2, 0, -65537, 2, 0, -131066, 2, 0, -131053, 2, 0, -131039, 2, 0, -1, 2, 0, -65533, 2, 0, -65532, 2, 0, -65531, 2, 0, -65530, 2, 0, -65514, 2, 0, -65503, 2, 0, 65535, 2, 0, 6, 2, 0, 33, 2, 0, 131071, 2, 0, 65542, 2, 0, 65543, 2, 0, 65544, 2, 0, 65545, 2, 0, 65546, 2, 0, 65547, 2, 0, 65548, 2, 0, 65549, 2, 0, 65550, 2, 0, 65551, 2, 0, 65552, 2, 0, 65553, 2, 0, 65560, 2, 0, 65569, 2, 0, 196607, 2, 0, 131072, 2, 0, 131073, 2, 0, 131074, 2, 0, 131075, 2, 0, 131078, 2, 0, 131098, 2, 0, 131105, 2, 0, 262143, 2, 0, 196614, 2, 0, 196641, 2, 0, 327679, 2, 0, 262150, 2, 0, 262169, 2, 0, 262172, 2, 0, 262177, 2, 0, 393215, 2, 0, 327683, 2, 0, 327684, 2, 0, 327685, 2, 0, 327686, 2, 0, 327713, 2, 0, 458751, 2, 0, 393222, 2, 0, 393239, 2, 0, 393240, 2, 0, 393241, 2, 0, 393242, 2, 0, 393243, 2, 0, 393244, 2, 0, 393245, 2, 0, 393246, 2, 0, 393247, 2, 0, 393248, 2, 0, 393249, 2, 0, 524287, 2, 0, 458752, 2, 0, 458753, 2, 0, 458785, 2, 0, 589823, 2, 0, 524289, 2, 0, 524290, 2, 0, 524291, 2, 0, 524292, 2, 0, 524309, 2, 0, 524321, 2, 0, 655359, 2, 0, 589845, 2, 0, 589846, 2, 0, 589857, 2, 0, 720895, 2, 0, 655379, 2, 0, 655381, 2, 0, 655382, 2, 0, 655393, 2, 0, 786431, 2, 0, 720915, 2, 0, 720917, 2, 0, 720918, 2, 0, 720919, 2, 0, 720929, 2, 0, 851967, 2, 0, 786432, 2, 0, 786433, 2, 0, 786434, 2, 0, 786435, 2, 0, 786436, 2, 0, 786437, 2, 0, 786438, 2, 0, 786439, 2, 0, 786440, 2, 0, 786441, 2, 0, 786442, 2, 0, 786443, 2, 0, 786444, 2, 0, 786445, 2, 0, 786446, 2, 0, 786447, 2, 0, 786448, 2, 0, 786449, 2, 0, 786450, 2, 0, 786451, 2, 0, 786452, 2, 0, 786453, 2, 0, 786454, 2, 0, 786455, 2, 0, 786456, 2, 0, 786457, 2, 0, 786458, 2, 0, 786459, 2, 0, 786460, 2, 0, 786461, 2, 0, 786462, 2, 0, 786463, 2, 0, 786464, 2, 0, 786465, 2, 0 )
 
-[node name="Spawn" type="ColorRect" parent="."]
-margin_left = 15.1821
-margin_top = -757.746
-margin_right = 344.182
-margin_bottom = -510.746
-color = Color( 0.0823529, 0.180392, 0.694118, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Spawn" type="Sprite" parent="."]
+position = Vector2( 212.595, -639.016 )
+texture = ExtResource( 4 )
 
 [node name="SpawnArea" type="Area2D" parent="Spawn"]
 position = Vector2( 160, 126.253 )
 
 [node name="SpawnCollision" type="CollisionShape2D" parent="Spawn/SpawnArea"]
+position = Vector2( -158.846, -109.457 )
 shape = SubResource( 8 )
 
-[node name="Door" type="ColorRect" parent="."]
-margin_left = 935.182
-margin_top = -200.492
-margin_right = 1200.18
-margin_bottom = 68.5077
-color = Color( 0.870588, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Door" type="Sprite" parent="."]
+position = Vector2( 1088.95, -3.3289 )
+texture = ExtResource( 5 )
 
 [node name="DoorArea" type="Area2D" parent="Door"]
 position = Vector2( 128.262, 141.493 )
 
 [node name="DoorCollision" type="CollisionShape2D" parent="Door/DoorArea"]
+position = Vector2( -125.405, -123.817 )
 shape = SubResource( 9 )
 
 [connection signal="body_entered" from="Spawn/SpawnArea" to="." method="_on_SpawnArea_body_entered"]
