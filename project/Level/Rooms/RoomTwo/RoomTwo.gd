@@ -29,7 +29,7 @@ func _on_SpawnArea_body_entered(_body) -> void:
 	if RoomGlobals.loading:
 		return
 	else:
-		RoomGlobals.next_room(0)
+		RoomGlobals._next_room(0)
 
 
 func _on_SpawnArea_body_exited(_body) -> void:
@@ -40,7 +40,7 @@ func _on_DoorArea_body_entered(_body) -> void:
 	if RoomGlobals.loading:
 		return
 	else:
-		RoomGlobals.next_room(1)
+		RoomGlobals._next_room(1)
 
 
 func _on_DoorArea_body_exited(_body) -> void:
