@@ -1,5 +1,5 @@
 extends KinematicBody2D
-
+class_name Player
 
 var jump_speed := -1250
 var run_speed := 375
