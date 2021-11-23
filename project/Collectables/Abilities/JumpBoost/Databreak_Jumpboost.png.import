@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Databreak_Blink.png-0582dca03ca38ab3e66d97052fad4f9c.stex"
+path="res://.import/Databreak_Jumpboost.png-a235102dca268bd7e1009b5557f631c9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Collectables/Abilities/Databreak_Blink.png"
-dest_files=[ "res://.import/Databreak_Blink.png-0582dca03ca38ab3e66d97052fad4f9c.stex" ]
+source_file="res://Collectables/Abilities/JumpBoost/Databreak_Jumpboost.png"
+dest_files=[ "res://.import/Databreak_Jumpboost.png-a235102dca268bd7e1009b5557f631c9.stex" ]
 
 [params]
 

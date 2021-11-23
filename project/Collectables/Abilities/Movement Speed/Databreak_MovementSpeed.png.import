@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Databreak_Invisibility (2).png-0324b07aa69af9a44cfcc0bb5dcc859e.stex"
+path="res://.import/Databreak_MovementSpeed.png-3efb4e83f7630b275f3163b6a4b74a43.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Collectables/Abilities/Databreak_Invisibility (2).png"
-dest_files=[ "res://.import/Databreak_Invisibility (2).png-0324b07aa69af9a44cfcc0bb5dcc859e.stex" ]
+source_file="res://Collectables/Abilities/Movement Speed/Databreak_MovementSpeed.png"
+dest_files=[ "res://.import/Databreak_MovementSpeed.png-3efb4e83f7630b275f3163b6a4b74a43.stex" ]
 
 [params]
 
