@@ -30,7 +30,7 @@ func _make_player() -> void:
 func _on_SpawnArea_body_entered(_body) -> void:
 	if RoomGlobals.loading:
 		return
-	else:
+	elif RoomGlobals.unlock == true:
 		RoomGlobals._next_room(0)
 
 

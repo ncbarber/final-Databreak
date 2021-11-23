@@ -2,6 +2,7 @@ extends Node
 
 
 var loading = true;
+var unlock = false;
 var current_scene : Node2D;
 var game_over : Control;
 var room_array = [];
@@ -21,6 +22,8 @@ func ability_get() -> String:
 
 func _start_game() -> void:
 	var _connectionGameOver = SignalManager.connect("send_game_over", self, "_handle_Game_Over")
+	var _connectionUnlock = SignalManager.connect("door_unlocked", self, "_handle_unlock")
+#	rng.randomize()
 	var room_number = rng.randi_range(1, 4)
 	room_array.push_back(room_number)
 	_goto_scene(room_number)
@@ -89,9 +92,14 @@ func _deferred_goto_scene(path) -> void:
 func _handle_Game_Over() -> void:
 	#var currentPath = get_tree().get_root().get_path()
 	#var _c = ResourceLoader.load(currentPath)
+#	var scene = get_tree().current_scene
 	var newPath = "res://ScreenEnd/ScreenEnd.tscn"
 	var n = ResourceLoader.load(newPath)
 	game_over = n.instance()
 	get_tree().get_root().add_child(game_over)
 	get_tree().set_current_scene(game_over)
 	current_scene.queue_free()
+
+
+func _handle_unlock() -> void:
+	unlock = true

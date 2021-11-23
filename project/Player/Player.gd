@@ -125,6 +125,8 @@ func _set_inputs() -> void:
 
 func _physics_process(delta) -> void:
 	_set_inputs()
+	if usb_collected == 1 and floppy_collected == 2:
+		SignalManager.emit_signal("unlock")
 	velocity.y += gravity * delta
 	if is_jumping and is_on_floor() or is_jumping and is_on_ceiling():
 		is_jumping = false

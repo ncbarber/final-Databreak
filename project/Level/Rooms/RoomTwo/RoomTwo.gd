@@ -41,7 +41,7 @@ func _on_SpawnArea_body_exited(_body) -> void:
 func _on_DoorArea_body_entered(_body) -> void:
 	if RoomGlobals.loading:
 		return
-	else:
+	elif RoomGlobals.unlock == true:
 		RoomGlobals._next_room(1)
 
 
