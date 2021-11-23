@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://ScreenStart/ScreenStart.gd" type="Script" id=1]
 [ext_resource path="res://Common/DatabreakBinary1.png" type="Texture" id=2]
 [ext_resource path="res://Common/DatabreakBinary0.png" type="Texture" id=3]
 [ext_resource path="res://Common/Staatliches-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://ScreenStart/Databreak_TitleSong.mp3" type="AudioStream" id=5]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -1367,5 +1368,9 @@ flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]

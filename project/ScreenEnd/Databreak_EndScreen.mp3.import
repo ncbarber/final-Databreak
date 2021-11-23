@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Databreak_EndScreen.mp3-a7c362e4d8d572bac71490543eb57e73.mp3str"
+
+[deps]
+
+source_file="res://ScreenEnd/Databreak_EndScreen.mp3"
+dest_files=[ "res://.import/Databreak_EndScreen.mp3-a7c362e4d8d572bac71490543eb57e73.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

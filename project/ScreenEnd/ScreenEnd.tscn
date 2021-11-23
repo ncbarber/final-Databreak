@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Common/Staatliches-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://ScreenEnd/ScreenEnd.gd" type="Script" id=2]
 [ext_resource path="res://ScreenEnd/DatabreakBinary1Red.png" type="Texture" id=3]
 [ext_resource path="res://ScreenEnd/DatabreakBinary0Read.png" type="Texture" id=4]
+[ext_resource path="res://ScreenEnd/Databreak_EndScreen.mp3" type="AudioStream" id=5]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -120,5 +121,9 @@ flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 
 [connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
