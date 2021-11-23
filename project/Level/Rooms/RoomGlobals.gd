@@ -7,7 +7,15 @@ var room_array = [];
 var current_index = 0;
 var spawn_location = 1;
 var rng = RandomNumberGenerator.new();
+var ability = '' setget ability_set, ability_get
 
+
+func ability_set(new_ability) -> void:
+	ability = new_ability
+
+
+func ability_get() -> String:
+	return ability
 
 func _start_game() -> void:
 	var room_number = rng.randi_range(1, 4)

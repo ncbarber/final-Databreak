@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Collectables/Abilities/Invisibility/Databreak_Invisibility (2).png" type="Texture" id=1]
-[ext_resource path="res://Collectables/Abilities/Invisibility/Invisibility.gd" type="Script" id=2]
+[ext_resource path="res://Collectables/Abilities/Movement Speed/Databreak_MovementSpeed.png" type="Texture" id=1]
+[ext_resource path="res://Collectables/Abilities/Movement Speed/MovementSpeed.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -41,24 +41,20 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=8]
-radius = 86.4959
-height = 20.7639
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 87.0937, 81.6066 )
 
-[node name="Invisibility" type="Node2D"]
+[node name="MovementSpeed" type="Area2D"]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( -0.699951, -0.424255 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 7 )
 animation = "float"
 frame = 2
 playing = true
 
-[node name="InvisCollision" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisCollision"]
-position = Vector2( -0.982056, -6.94614 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 8, 0 )
 shape = SubResource( 8 )
 
-[connection signal="body_entered" from="InvisCollision" to="." method="_on_InvisCollision_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_MovementSpeed_body_entered"]
