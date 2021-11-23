@@ -1,5 +1,5 @@
 # Databreak
-## Final Project Iteration 1
+## Final Project Iteration 2
 
 
 ## How to Play
@@ -31,13 +31,13 @@ The second iteration was definetly a new step for our final project. A lot of th
 - [X] C-6: The release demonstrates the core gameplay loop: the player can take actions that move them toward a goal.
 - [X] B-1: The <code>README.md</code> file contains a personal reflection on the iteration and self-evaluation, as defined above.
 - [X] B-2: The game runs without errors or warnings.
-- [ ] B-3: The source code and project structure comply with our adopted style guides.
+- [X] B-3: The source code and project structure comply with our adopted style guides.
 - [X] B-4: Clear progress has been made on the game with respect to the project plan.
 - [X] A-1: The source code contains no warnings. All warnings are properly addressed, not just ignored.
 - [X] A-2: The game includes the conventional player experience loop of title, gameplay, and ending.
 - [X] A-3: Earn <em>N</em>*&lceil;<em>P</em>/2&rceil; stars, where <em>N</em> is the iteration number and <em>P</em> is the number of people on the team.
 - [X] ⭐ Include a dynamic (non-static) camera
-- [ ] ⭐ Incorporate parallax background scrolling
+- [X] ⭐ Incorporate parallax background scrolling
 - [ ] ⭐ Use paper doll animations
 - [ ] ⭐ Use an <code>AnimationTree</code> with either blend spaces (3D) or an animation state machine (2D)
 - [ ] ⭐ Incorporate smooth transitions between title, game, and end states, rather than jumping between states via <code>change_scene</code>
@@ -56,7 +56,6 @@ We have done everything needed in order to get an A on this iteration of the fin
 ## Third-Party Resources
 
 - [Staatliches by Brian LaRossa, Erica Carras](https://fonts.google.com/specimen/Staatliches), licensed under [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
-- [Platformer Art Deluxe by Kenny](https://kenney.nl/assets/platformer-art-deluxe), licensed under [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)
 - [Art supplied by Nathaniel Barber using piskelapp.com](https://www.piskelapp.com)
 - [Sounds and Music by Nathaniel Barber using beepbox.co](https://www.beepbox.co/#9n31s0k0l00e03t2ma7g0fj07r1i0o432T5v1ua0f60m92hc1ea2k02f30req83431d37H_QiBy9asq99900h0E0T1v1u65f0q0x10t51d08A1F2B9Q00d0Pfc47E3b662878T1v1uaaf0q0x10kb1d35A2F0BcQ2d00Pc550E2bg7eT2v1u15f10w4qw02d03w0E0b4h400000000h4g000000014h000000004h400000000p16000000)
 - Shout-out to the Matrix
