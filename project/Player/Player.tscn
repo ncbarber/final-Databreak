@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/DatabreakCharacter.png" type="Texture" id=2]
 [ext_resource path="res://Player/DatabreakCharacterJumpFrame.png" type="Texture" id=3]
+[ext_resource path="res://Player/HUD.tscn" type="PackedScene" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -96,15 +97,15 @@ animations = [ {
 "name": "walk",
 "speed": 16.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ) ],
 "loop": false,
 "name": "crouch",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=18]
@@ -128,6 +129,8 @@ shape = SubResource( 18 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 2, 2 )
+
+[node name="HUD" parent="Camera2D" instance=ExtResource( 4 )]
 
 [node name="InvisibilityTimer" type="Timer" parent="."]
 wait_time = 3.0

@@ -56,7 +56,7 @@ func _make_enemy() -> void:
 # When called creates an instance of an USB collectable at a specified position
 func _make_USB() -> void:
 	usb = load("res://Collectables/Data/USB.tscn").instance()
-	var _connection := usb.connect("body_entered", self, "_on_USB_Entered", [usb])
+#	var _connection := usb.connect("body_entered", self, "_on_USB_Entered", [usb])
 	usb.position = usb_position
 	call_deferred("add_child", usb)
 
@@ -64,7 +64,7 @@ func _make_USB() -> void:
 # When called creates an instance of an Floppy Disk collectable at a specified position
 func _make_Floppy_Disk() -> void:
 	floppy = load("res://Collectables/Data/FloppyDisk.tscn").instance()
-	var _connection := floppy.connect("body_entered", self, "_on_Floppy_Entered", [floppy])
+#	var _connection := floppy.connect("body_entered", self, "_on_Floppy_Entered", [floppy])
 	floppy.position = floppy_position
 	call_deferred("add_child", floppy)
 
@@ -74,22 +74,22 @@ func _register_hit(body) -> void:
 		var _game_over := get_tree().change_scene("res://ScreenEnd/ScreenEnd.tscn")
 
 
-func _on_USB_Entered(body, _usb) -> void:
-	if body == player:
+#func _on_USB_Entered(body, _usb) -> void:
+#	if body == player:
 		# Make note that data was collected
-		usb_collected += 1
-		$HUD/USB.visible = false
-		_usb.queue_free()
+#		usb_collected += 1
+#		$HUD/USB.visible = false
+#		_usb.queue_free()
 
 
-func _on_Floppy_Entered(body, _floppy) -> void:
-	if body == player:
+#func _on_Floppy_Entered(body, _floppy) -> void:
+#	if body == player:
 		# Make note that data was collected
-		floppy_collected += 1
-		if floppy_collected == 1:
-			$HUD/Floppy.visible = false
-		elif floppy_collected == 2:
-			$HUD/Floppy2.visible = false
-		elif floppy_collected == 3:
-			$HUD/Floppy3.visible = false
-		_floppy.queue_free()
+#		floppy_collected += 1
+#		if floppy_collected == 1:
+#			$HUD/Floppy.visible = false
+#		elif floppy_collected == 2:
+#			$HUD/Floppy2.visible = false
+#		elif floppy_collected == 3:
+#			$HUD/Floppy3.visible = false
+#		_floppy.queue_free()
