@@ -56,9 +56,11 @@ func _set_up_ability() -> void:
 	if num == 1:
 		$JumpBoost.queue_free()
 		$MovementSpeed.queue_free()
+		
 	if num == 2:
 		$Invisibility.queue_free()
 		$MovementSpeed.queue_free()
+		
 	if num == 3:
 		$Invisibility.queue_free()
 		$JumpBoost.queue_free()
@@ -70,17 +72,19 @@ func _set_up_Enemies() -> void:
 	num = int(round(num))
 	if num == 1:
 		$Enemy3.queue_free()
+		
 	if num == 2:
 		$Enemy2.queue_free()
+		
 	if num == 3:
 		$Enemy.queue_free()
-
 		
+
+
 func _set_up_floppy() -> void:
 	randomize()
 	var num = rand_range(1,15)
 	num = int(round(num))
-	print(num)
 	match num:
 		1:
 			$FloppyDisk3.queue_free()
