@@ -18,6 +18,7 @@ func ability_set(new_ability) -> void:
 func ability_get() -> String:
 	return ability
 
+
 func _start_game() -> void:
 	var _connectionGameOver = SignalManager.connect("send_game_over", self, "_handle_Game_Over")
 	var room_number = rng.randi_range(1, 4)
