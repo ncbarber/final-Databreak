@@ -13,6 +13,7 @@ Controls
 - A or Left Arrow to move left
 - D or Right Arrow to move right
 - V to use your ability
+- You're ability will recharge and the icon will show that it is ready in the HUD
 
 ## Reflection
 
