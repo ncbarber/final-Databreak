@@ -51,15 +51,15 @@ func _on_Light_body_entered(body) -> void:
 	
 
 
-func _on_Light_body_exited(_body):
+func _on_Light_body_exited(_body)-> void:
 	$DisengageTimer.start()
 	
 
-func _on_KillBox_body_entered(body):
+func _on_KillBox_body_entered(body)-> void:
 	emit_signal("player_hit", body)
 
 
-func _on_DisengageTimer_timeout():
+func _on_DisengageTimer_timeout()-> void:
 	state = "Idle"
 	$Alarm.playing = false
 	$Light/LightSprite.modulate = Color(1,1,1,0.34)
