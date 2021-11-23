@@ -7,6 +7,7 @@ var run_speed := 100
 var gravity := 0
 var velocity := Vector2()
 var is_moving_left := false
+var playerVisble := true
 var direction := 1
 var rotation_position := 15
 var state := "Idle" 
@@ -16,6 +17,8 @@ var player = null
 func _ready() -> void:
 	if direction == 1:
 		$Sprite.flip_h = false
+	var _connectionInvis = SignalManager.connect("player_invisible", self, "_on_player_invisible")
+	var _connectionVis = SignalManager.connect("player_visible", self, "_on_player_visible")
 
 
 func _physics_process(delta) -> void:
@@ -42,22 +45,31 @@ func _physics_process(delta) -> void:
 
 
 func _on_Light_body_entered(body) -> void:
-	player = body
-	$Alarm.playing = true
-	state = "Chasing"
+	if playerVisble == true:
+		player = body
+		$Alarm.playing = true
+		state = "Chasing"
 	
 
 
-func _on_Light_body_exited(_body):
+func _on_Light_body_exited(_body) -> void:
 	$DisengageTimer.start()
 
 
-func _on_KillBox_body_entered(body):
+func _on_KillBox_body_entered(body) -> void:
 	if body == player:
 		SignalManager.emit_signal('game_over')
 
 
-func _on_DisengageTimer_timeout():
+func _on_DisengageTimer_timeout() -> void:
 	state = "Idle"
 	$Alarm.playing = false
 	$Light/LightSprite.modulate = Color(1,1,1,0.34)
+
+
+func _on_player_invisible() -> void:
+	playerVisble = false
+
+
+func _on_player_visible() -> void:
+	playerVisble = true

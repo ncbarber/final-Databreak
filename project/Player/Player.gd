@@ -95,6 +95,7 @@ func _set_inputs() -> void:
 		if RoomGlobals.ability_get() == 'invisible':
 			is_blocked = true
 			modulate.a8 = 50
+			SignalManager.emit_signal("invisible")
 			$InvisibilityTimer.start()
 			$AbilityCooldown.start()
 	# Here we check what ability we currently have, and then update the HUD as needed as well as handle 
@@ -135,6 +136,7 @@ func _physics_process(delta) -> void:
 
 func _on_InvisibilityTimer_timeout():
 	modulate.a8 = 255
+	SignalManager.emit_signal("visible")
 
 
 func _on_AbilityCooldown_timeout():
