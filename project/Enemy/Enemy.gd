@@ -43,6 +43,7 @@ func _physics_process(delta) -> void:
 
 func _on_Light_body_entered(body) -> void:
 	player = body
+	$Alarm.playing = true
 	state = "Chasing"
 	
 
@@ -58,4 +59,5 @@ func _on_KillBox_body_entered(body):
 
 func _on_DisengageTimer_timeout():
 	state = "Idle"
+	$Alarm.playing = false
 	$Light/LightSprite.modulate = Color(1,1,1,0.34)
