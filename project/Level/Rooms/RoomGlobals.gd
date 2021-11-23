@@ -3,13 +3,19 @@ extends Node
 
 var loading = true;
 var unlock = false;
-var current_scene : Node2D;
+var current_scene ;
 var game_over : Control;
 var room_array = [];
 var current_index = 0;
 var spawn_location = 1;
 var rng = RandomNumberGenerator.new();
 var ability = '' setget ability_set, ability_get
+var is_startup = true
+
+
+func _ready() -> void:
+	var _connectionGameOver = SignalManager.connect("send_game_over", self, "_handle_Game_Over")
+	var _connectionUnlock = SignalManager.connect("door_unlocked", self, "_handle_unlock")
 
 
 func ability_set(new_ability) -> void:
@@ -21,9 +27,8 @@ func ability_get() -> String:
 
 
 func _start_game() -> void:
-	var _connectionGameOver = SignalManager.connect("send_game_over", self, "_handle_Game_Over")
-	var _connectionUnlock = SignalManager.connect("door_unlocked", self, "_handle_unlock")
-#	rng.randomize()
+	rng.randomize()
+	current_index = 0
 	var room_number = rng.randi_range(1, 4)
 	room_array.push_back(room_number)
 	_goto_scene(room_number)
@@ -93,12 +98,12 @@ func _handle_Game_Over() -> void:
 	#var currentPath = get_tree().get_root().get_path()
 	#var _c = ResourceLoader.load(currentPath)
 #	var scene = get_tree().current_scene
-	var newPath = "res://ScreenEnd/ScreenEnd.tscn"
-	var n = ResourceLoader.load(newPath)
-	game_over = n.instance()
-	get_tree().get_root().add_child(game_over)
-	get_tree().set_current_scene(game_over)
-	current_scene.queue_free()
+	if(!is_startup):
+		call_deferred('_deferred_goto_scene', "res://ScreenEnd/ScreenEnd.tscn")
+	else:
+		is_startup=false
+	room_array.clear()
+	ability_set('')
 
 
 func _handle_unlock() -> void:
