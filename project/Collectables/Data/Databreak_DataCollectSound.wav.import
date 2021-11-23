@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Databreak_DataCollectSound.wav-3f019ceacac81bd6adbea205e3160914.sample"
+
+[deps]
+
+source_file="res://Collectables/Data/Databreak_DataCollectSound.wav"
+dest_files=[ "res://.import/Databreak_DataCollectSound.wav-3f019ceacac81bd6adbea205e3160914.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

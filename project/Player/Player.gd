@@ -19,6 +19,7 @@ var usb_collected := 0
 
 
 func _ready() -> void:
+	
 	var _connectionFloppy = SignalManager.connect("handle_floppy", self, "_handle_Floppy")
 	var _connectionUSB = SignalManager.connect("handle_usb", self, "_handle_USB")
 	$Camera2D/HUD/Movement.visible = false

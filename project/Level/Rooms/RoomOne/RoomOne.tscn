@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Level/Databreat_LevelDoor1.png" type="Texture" id=1]
 [ext_resource path="res://Level/Rooms/RoomOne/RoomOne.gd" type="Script" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Collectables/Abilities/JumpBoost/JumpBoost.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Collectables/Data/USB.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Level/Databreak_Background2.png" type="Texture" id=11]
+[ext_resource path="res://Level/Databreak_Background.png" type="Texture" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
@@ -141,6 +143,29 @@ extents = Vector2( 84.1011, 114.289 )
 
 [node name="RoomOne" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 1436.45, 345.146 )
+scale = Vector2( 2, 2 )
+motion_scale = Vector2( 0.55, 0.55 )
+motion_mirroring = Vector2( 2000, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( -890.899, -1040.57 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 11 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( -466.133, 959.428 )
+motion_scale = Vector2( 0.55, 0.55 )
+motion_mirroring = Vector2( 2000, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 1006.86, -335.621 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 12 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -3, 0 )

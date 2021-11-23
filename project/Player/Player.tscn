@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/DatabreakCharacter.png" type="Texture" id=2]
 [ext_resource path="res://Player/DatabreakCharacterJumpFrame.png" type="Texture" id=3]
 [ext_resource path="res://Player/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player/Databreak_Theme.mp3" type="AudioStream" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -139,6 +140,10 @@ one_shot = true
 [node name="AbilityCooldown" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
+
+[node name="ThemeSong" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 
 [connection signal="timeout" from="InvisibilityTimer" to="." method="_on_InvisibilityTimer_timeout"]
 [connection signal="timeout" from="AbilityCooldown" to="." method="_on_AbilityCooldown_timeout"]
