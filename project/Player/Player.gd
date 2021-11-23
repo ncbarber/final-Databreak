@@ -1,6 +1,7 @@
 extends KinematicBody2D
 class_name Player
 
+
 var jump_speed := -1250
 var run_speed := 375
 var gravity := 3200
@@ -18,10 +19,8 @@ var usb_collected := 0
 
 
 func _ready() -> void:
-	floppy = load("res://Collectables/Data/FloppyDisk.tscn").instance()
-	var _floppyConnection := floppy.connect("body_entered", self, "_on_Floppy_Entered")
-	usb = load("res://Collectables/Data/USB.tscn").instance()
-	var _usbConnection := usb.connect("body_entered", self, "_on_USB_Entered")
+	var _connectionFloppy = SignalManager.connect("handle_floppy", self, "_handle_Floppy")
+	var _connectionUSB = SignalManager.connect("handle_usb", self, "_handle_USB")
 
 
 func _set_inputs() -> void:
@@ -92,6 +91,12 @@ func _set_inputs() -> void:
 			modulate.a8 = 50
 			$InvisibilityTimer.start()
 			$AbilityCooldown.start()
+		
+#		if RoomGlobals.ability_get() == 'jump':
+#			is_blocked = true
+#			jump_speed -= 500
+#			$InvisibilityTimer.start()
+#			$AbilityCooldown.start()
 
 
 func _physics_process(delta) -> void:
@@ -110,22 +115,14 @@ func _on_AbilityCooldown_timeout():
 	is_blocked = false
 
 
-func _on_USB_Entered(body, _usb) -> void:
-	if body == player:
-		# Make note that data was collected
-		usb_collected += 1
-		$HUD/USB.visible = false
-		_usb.queue_free()
+func _handle_USB() -> void:
+	usb_collected += 1
+	$Camera2D/HUD/USB.visible = false
 
 
-func _on_Floppy_Entered(body, _floppy) -> void:
-	if body == player:
-		# Make note that data was collected
-		floppy_collected += 1
-		if floppy_collected == 1:
-			$HUD/Floppy.visible = false
-		elif floppy_collected == 2:
-			$HUD/Floppy2.visible = false
-		elif floppy_collected == 3:
-			$HUD/Floppy3.visible = false
-		_floppy.queue_free()
+func _handle_Floppy() -> void:
+	floppy_collected += 1
+	if floppy_collected == 1:
+		$Camera2D/HUD/Floppy.visible = false
+	elif floppy_collected == 2:
+		$Camera2D/HUD/Floppy2.visible = false

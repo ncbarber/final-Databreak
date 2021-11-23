@@ -33,6 +33,7 @@ config/icon="res://icon.png"
 [autoload]
 
 RoomGlobals="*res://Level/Rooms/RoomGlobals.gd"
+SignalManager="*res://Player/SignalManager.gd"
 
 [input]
 

@@ -57,12 +57,7 @@ position = Vector2( 225, 30 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 3 )
 
-[node name="Floppy3" type="AnimatedSprite" parent="."]
-position = Vector2( 275, 30 )
-scale = Vector2( 0.25, 0.25 )
-frames = SubResource( 3 )
-
 [node name="USB" type="AnimatedSprite" parent="."]
-position = Vector2( 325, 30 )
+position = Vector2( 275, 30 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 5 )
