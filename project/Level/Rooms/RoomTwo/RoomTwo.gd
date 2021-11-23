@@ -43,6 +43,7 @@ func _on_DoorArea_body_entered(_body) -> void:
 		return
 	elif RoomGlobals.unlock == true:
 		RoomGlobals._next_room(1)
+		RoomGlobals.unlock = false
 
 
 func _on_DoorArea_body_exited(_body) -> void:
