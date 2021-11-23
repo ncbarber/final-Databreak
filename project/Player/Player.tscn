@@ -98,15 +98,15 @@ animations = [ {
 "name": "walk",
 "speed": 16.0
 }, {
-"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ) ],
-"loop": false,
-"name": "crouch",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ) ],
+"loop": false,
+"name": "crouch",
+"speed": 15.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=18]
