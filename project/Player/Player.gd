@@ -19,7 +19,7 @@ var usb_collected := 0
 
 
 func _ready() -> void:
-	
+	# On ready we set up the global connections that will communicate to change items on the HUD
 	var _connectionFloppy = SignalManager.connect("handle_floppy", self, "_handle_Floppy")
 	var _connectionUSB = SignalManager.connect("handle_usb", self, "_handle_USB")
 #	var _connectionGameOver = SignalManager.connect("send_game_over", self, "_handle_Game_Over")
@@ -30,6 +30,7 @@ func _ready() -> void:
 
 func _set_inputs() -> void:
 	velocity.x = 0
+	# Here we set up the input variables for all of our movement and the ability
 	var right := Input.is_action_pressed('move_right')
 	var left := Input.is_action_pressed('move_left')
 	var crouch := Input.is_action_pressed('jump')
@@ -96,7 +97,8 @@ func _set_inputs() -> void:
 			modulate.a8 = 50
 			$InvisibilityTimer.start()
 			$AbilityCooldown.start()
-		
+	# Here we check what ability we currently have, and then update the HUD as needed as well as handle 
+	# when an ability is used, like invisibility and the jump boost
 	if RoomGlobals.ability_get() == 'jump':
 		$Camera2D/HUD/Movement.visible = false
 		$Camera2D/HUD/Invis.visible = false

@@ -86,8 +86,8 @@ func _deferred_goto_scene(path) -> void:
 	
 	
 func _handle_Game_Over() -> void:
-	var currentPath = get_tree().get_root().get_path()
-	var _c = ResourceLoader.load(currentPath)
+	#var currentPath = get_tree().get_root().get_path()
+	#var _c = ResourceLoader.load(currentPath)
 	var newPath = "res://ScreenEnd/ScreenEnd.tscn"
 	var n = ResourceLoader.load(newPath)
 	game_over = n.instance()

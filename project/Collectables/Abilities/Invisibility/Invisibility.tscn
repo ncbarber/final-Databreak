@@ -52,7 +52,7 @@ script = ExtResource( 2 )
 position = Vector2( -0.699951, -0.424255 )
 frames = SubResource( 7 )
 animation = "float"
-frame = 5
+frame = 4
 playing = true
 
 [node name="InvisCollision" type="Area2D" parent="."]
