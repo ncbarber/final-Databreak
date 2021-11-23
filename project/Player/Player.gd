@@ -136,12 +136,12 @@ func _physics_process(delta) -> void:
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 
 
-func _on_InvisibilityTimer_timeout():
+func _on_InvisibilityTimer_timeout() -> void:
 	modulate.a8 = 255
 	SignalManager.emit_signal("visible")
 
 
-func _on_AbilityCooldown_timeout():
+func _on_AbilityCooldown_timeout() -> void:
 	is_blocked = false
 
 
@@ -156,9 +156,4 @@ func _handle_Floppy() -> void:
 		$Camera2D/HUD/Floppy.visible = false
 	elif floppy_collected == 2:
 		$Camera2D/HUD/Floppy2.visible = false
-
-#func _handle_Game_Over() -> void:
-#	print("Game Over")
-#	.queue_free()
-#	var _game_over := get_tree().change_scene("res://ScreenEnd/ScreenEnd.tscn")
 	
