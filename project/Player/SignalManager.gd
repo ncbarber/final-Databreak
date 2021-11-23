@@ -4,6 +4,10 @@ extends Node
 signal floppy_entered
 signal usb_entered
 
+#signal invis_entered
+#signal jump_entered
+#signal movement_entered
+
 signal handle_floppy
 signal handle_usb
 

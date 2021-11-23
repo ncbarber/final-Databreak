@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Common/Staatliches-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Collectables/Data/Databreak-USB.png" type="Texture" id=2]
 [ext_resource path="res://Collectables/Data/Databreak-Floppy.png" type="Texture" id=3]
+[ext_resource path="res://Collectables/Abilities/JumpBoost/Databreak_Jumpboost.png" type="Texture" id=4]
+[ext_resource path="res://Collectables/Abilities/Invisibility/Databreak_Invisibility (2).png" type="Texture" id=5]
+[ext_resource path="res://Collectables/Abilities/Movement Speed/Databreak_MovementSpeed.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -29,6 +32,45 @@ region = Rect2( 0, 0, 256, 256 )
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 10 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -61,3 +103,18 @@ frames = SubResource( 3 )
 position = Vector2( 275, 30 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 5 )
+
+[node name="Movement" type="AnimatedSprite" parent="."]
+position = Vector2( 50, 550 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 7 )
+
+[node name="Jump" type="AnimatedSprite" parent="."]
+position = Vector2( 50, 550 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 9 )
+
+[node name="Invis" type="AnimatedSprite" parent="."]
+position = Vector2( 50, 550 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 11 )
