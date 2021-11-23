@@ -1,65 +1,67 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Enemy/Databreak_Drone.png" type="Texture" id=1]
 [ext_resource path="res://Enemy/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://Enemy/DatabreakFlashLight.png" type="Texture" id=3]
+[ext_resource path="res://Enemy/Databreak_DroneBuzz.wav" type="AudioStream" id=4]
+[ext_resource path="res://Enemy/Databreak_DroneAlarm.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.2372, 30.1792 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 256, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 512, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 256, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 256, 256, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 512, 256, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 512, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 256, 512, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 512, 512, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 768, 256, 256 )
 
-[sub_resource type="SpriteFrames" id=13]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
 "name": "default",
 "speed": 100.0
@@ -89,9 +91,11 @@ collision_mask = 2
 [node name="LightCollision" type="CollisionPolygon2D" parent="Light"]
 position = Vector2( 349.641, 1.62439 )
 rotation = 1.5708
-scale = Vector2( 1, 1 )
 z_index = 1
 polygon = PoolVector2Array( -83.4664, -28.527, 78.1682, -27.4046, 0.718231, 352.549 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="LightSprite" type="Sprite" parent="Light"]
 modulate = Color( 1, 1, 1, 0.345098 )
@@ -106,23 +110,38 @@ __meta__ = {
 }
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 13 )
-frame = 8
+frames = SubResource( 12 )
+frame = 5
 playing = true
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="KillBox" type="Area2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KillBox"]
 position = Vector2( -9.1096, 1.82348 )
 scale = Vector2( 0.80921, 0.787011 )
 polygon = PoolVector2Array( -14.5425, 42.1369, 37.4186, 42.1369, 116.597, -76.5892, -95.6285, -77.8083 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="DisengageTimer" type="Timer" parent="."]
 wait_time = 3.5
-autostart = true
+one_shot = true
+
+[node name="DroneBuzzing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -5.0
+pitch_scale = 2.09
+autoplay = true
+
+[node name="Alarm" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
 
 [connection signal="body_entered" from="Light" to="." method="_on_Light_body_entered"]
 [connection signal="body_exited" from="Light" to="." method="_on_Light_body_exited"]

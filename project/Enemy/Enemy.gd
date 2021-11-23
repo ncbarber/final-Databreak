@@ -41,17 +41,19 @@ func _physics_process(delta) -> void:
 			run_speed = lerp(run_speed,475,delta/3)
 			velocity = position.direction_to(player.position) * run_speed
 			velocity = move_and_slide(velocity, Vector2(0, -1))
+			
 
 
 func _on_Light_body_entered(body) -> void:
 	player = body
+	$Alarm.playing = true
 	state = "Chasing"
 	
 
 
 func _on_Light_body_exited(_body):
 	$DisengageTimer.start()
-
+	
 
 func _on_KillBox_body_entered(body):
 	emit_signal("player_hit", body)
@@ -59,4 +61,5 @@ func _on_KillBox_body_entered(body):
 
 func _on_DisengageTimer_timeout():
 	state = "Idle"
+	$Alarm.playing = false
 	$Light/LightSprite.modulate = Color(1,1,1,0.34)

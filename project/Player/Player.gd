@@ -9,7 +9,6 @@ var is_jumping := false
 var is_crouched := false
 var lives_remaining := 3
 
-
 func _set_inputs() -> void:
 	velocity.x = 0
 	var right := Input.is_action_pressed('move_right')

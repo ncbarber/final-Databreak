@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Databreak_DroneBuzz.wav-76bbf5fbb18928758ba6f94e23836491.sample"
+
+[deps]
+
+source_file="res://Enemy/Databreak_DroneBuzz.wav"
+dest_files=[ "res://.import/Databreak_DroneBuzz.wav-76bbf5fbb18928758ba6f94e23836491.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=true
+compress/mode=0
