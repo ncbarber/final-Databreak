@@ -3,6 +3,7 @@ extends Node
 
 var loading = true;
 var current_scene : Node2D;
+var game_over : Control;
 var room_array = [];
 var current_index = 0;
 var spawn_location = 1;
@@ -18,6 +19,7 @@ func ability_get() -> String:
 	return ability
 
 func _start_game() -> void:
+	var _connectionGameOver = SignalManager.connect("send_game_over", self, "_handle_Game_Over")
 	var room_number = rng.randi_range(1, 4)
 	room_array.push_back(room_number)
 	_goto_scene(room_number)
@@ -81,4 +83,14 @@ func _deferred_goto_scene(path) -> void:
 
 	# Add it to the active scene, as child of root.
 	get_tree().get_root().add_child(current_scene)
-
+	
+	
+func _handle_Game_Over() -> void:
+	var currentPath = get_tree().get_root().get_path()
+	var _c = ResourceLoader.load(currentPath)
+	var newPath = "res://ScreenEnd/ScreenEnd.tscn"
+	var n = ResourceLoader.load(newPath)
+	game_over = n.instance()
+	get_tree().get_root().add_child(game_over)
+	get_tree().set_current_scene(game_over)
+	current_scene.queue_free()

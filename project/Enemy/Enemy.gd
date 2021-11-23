@@ -53,7 +53,7 @@ func _on_Light_body_exited(_body):
 
 func _on_KillBox_body_entered(body):
 	if body == player:
-		var _game_over := get_tree().change_scene("res://ScreenEnd/ScreenEnd.tscn")
+		SignalManager.emit_signal('game_over')
 
 
 func _on_DisengageTimer_timeout():

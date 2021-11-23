@@ -22,6 +22,7 @@ func _ready() -> void:
 	
 	var _connectionFloppy = SignalManager.connect("handle_floppy", self, "_handle_Floppy")
 	var _connectionUSB = SignalManager.connect("handle_usb", self, "_handle_USB")
+#	var _connectionGameOver = SignalManager.connect("send_game_over", self, "_handle_Game_Over")
 	$Camera2D/HUD/Movement.visible = false
 	$Camera2D/HUD/Invis.visible = false
 	$Camera2D/HUD/Jump.visible = false
@@ -147,3 +148,9 @@ func _handle_Floppy() -> void:
 		$Camera2D/HUD/Floppy.visible = false
 	elif floppy_collected == 2:
 		$Camera2D/HUD/Floppy2.visible = false
+
+#func _handle_Game_Over() -> void:
+#	print("Game Over")
+#	.queue_free()
+#	var _game_over := get_tree().change_scene("res://ScreenEnd/ScreenEnd.tscn")
+	
