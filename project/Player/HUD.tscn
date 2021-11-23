@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Common/Staatliches-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Collectables/Data/Databreak-USB.png" type="Texture" id=2]
+[ext_resource path="res://Collectables/Data/Databreak-Floppy.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="DataToCollect" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 15.0
+margin_right = 157.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+text = "Data To Collect: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Floppy" type="AnimatedSprite" parent="."]
+position = Vector2( 175, 30 )
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 3 )
+
+[node name="Floppy2" type="AnimatedSprite" parent="."]
+position = Vector2( 225, 30 )
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 3 )
+
+[node name="Floppy3" type="AnimatedSprite" parent="."]
+position = Vector2( 275, 30 )
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 3 )
+
+[node name="USB" type="AnimatedSprite" parent="."]
+position = Vector2( 325, 30 )
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 5 )
