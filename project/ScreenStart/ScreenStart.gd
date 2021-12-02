@@ -9,8 +9,7 @@ func _ready() -> void:
 
 
 func _on_StartButton_pressed() -> void:
-	#var _ignored := get_tree().change_scene("res://Level/Level.tscn")
-	RoomGlobals._start_game()
+	var _ignored := get_tree().change_scene("res://Tutorial/Tutorial.tscn")
 	$BinaryParticle.visible = false
 	$BinaryParticleInverse.visible = false
 	queue_free()
