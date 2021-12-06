@@ -31,6 +31,8 @@ func _ready() -> void:
 	$Camera2D/HUD/InvisLabel.visible = false
 	$Camera2D/HUD/JumpLabel.visible = false
 	$Camera2D/HUD/Counter.visible = false
+	$Camera2D/HUD/DataToCollect.visible = true
+	$Camera2D/HUD/DoorUnlocked.visible = false
 
 
 func _set_inputs() -> void:
@@ -149,10 +151,12 @@ func _physics_process(delta) -> void:
 	_set_inputs()
 	timer = $AbilityCooldown.time_left
 	$Camera2D/HUD/Counter.text = "Ability Ready in: %d s" % timer
-	if usb_collected == 1 and floppy_collected == 2:
+	if floppy_collected == 2 and usb_collected == 1:
 		SignalManager.emit_signal("unlock")
 		usb_collected = 0
 		floppy_collected = 0
+		$Camera2D/HUD/DataToCollect.visible = false
+		$Camera2D/HUD/DoorUnlocked.visible = true
 	velocity.y += gravity * delta
 	if is_jumping and is_on_floor() or is_jumping and is_on_ceiling():
 		is_jumping = false

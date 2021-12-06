@@ -89,6 +89,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="DoorUnlocked" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 15.0
+margin_right = 157.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+text = "The door is unlocked! Follow the arrow"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Floppy" type="AnimatedSprite" parent="."]
 position = Vector2( 175, 30 )
 scale = Vector2( 0.25, 0.25 )
