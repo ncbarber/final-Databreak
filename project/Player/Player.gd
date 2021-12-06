@@ -16,6 +16,7 @@ var usb : Area2D
 var floppy : Area2D
 var floppy_collected := 0
 var usb_collected := 0
+var timer := 0
 
 
 func _ready() -> void:
@@ -26,6 +27,10 @@ func _ready() -> void:
 	$Camera2D/HUD/Movement.visible = false
 	$Camera2D/HUD/Invis.visible = false
 	$Camera2D/HUD/Jump.visible = false
+	$Camera2D/HUD/MovementLabel.visible = false
+	$Camera2D/HUD/InvisLabel.visible = false
+	$Camera2D/HUD/JumpLabel.visible = false
+	$Camera2D/HUD/Counter.visible = false
 
 
 func _set_inputs() -> void:
@@ -104,28 +109,46 @@ func _set_inputs() -> void:
 		$Camera2D/HUD/Movement.visible = false
 		$Camera2D/HUD/Invis.visible = false
 		$Camera2D/HUD/Jump.visible = true
+		$Camera2D/HUD/MovementLabel.visible = false
+		$Camera2D/HUD/InvisLabel.visible = false
 		if is_blocked:
 			$Camera2D/HUD/Jump.modulate.a8 = 50
+			$Camera2D/HUD/Counter.visible = true
+			$Camera2D/HUD/JumpLabel.visible = false
 		if !is_blocked:
 			$Camera2D/HUD/Jump.modulate.a8 = 255
+			$Camera2D/HUD/Counter.visible = false
+			$Camera2D/HUD/JumpLabel.visible = true
 			
 	if RoomGlobals.ability_get() == 'invisible':
 		$Camera2D/HUD/Movement.visible = false
 		$Camera2D/HUD/Invis.visible = true
 		$Camera2D/HUD/Jump.visible = false
+		$Camera2D/HUD/MovementLabel.visible = false
+		$Camera2D/HUD/JumpLabel.visible = false
 		if is_blocked:
 			$Camera2D/HUD/Invis.modulate.a8 = 50
+			$Camera2D/HUD/Counter.visible = true
+			$Camera2D/HUD/InvisLabel.visible = false
 		if !is_blocked:
 			$Camera2D/HUD/Invis.modulate.a8 = 255
+			$Camera2D/HUD/Counter.visible = false
+			$Camera2D/HUD/InvisLabel.visible = true
 		
 	if RoomGlobals.ability_get() == 'movement':
 		$Camera2D/HUD/Movement.visible = true
 		$Camera2D/HUD/Invis.visible = false
 		$Camera2D/HUD/Jump.visible = false
+		$Camera2D/HUD/MovementLabel.visible = true
+		$Camera2D/HUD/InvisLabel.visible = false
+		$Camera2D/HUD/JumpLabel.visible = false
+		$Camera2D/HUD/Counter.visible = false
 
 
 func _physics_process(delta) -> void:
 	_set_inputs()
+	timer = $AbilityCooldown.time_left
+	$Camera2D/HUD/Counter.text = "Ability Ready in: %d s" % timer
 	if usb_collected == 1 and floppy_collected == 2:
 		SignalManager.emit_signal("unlock")
 		usb_collected = 0

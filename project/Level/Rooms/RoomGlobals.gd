@@ -95,9 +95,6 @@ func _deferred_goto_scene(path) -> void:
 	
 	
 func _handle_Game_Over() -> void:
-	#var currentPath = get_tree().get_root().get_path()
-	#var _c = ResourceLoader.load(currentPath)
-#	var scene = get_tree().current_scene
 	if(!is_startup):
 		call_deferred('_deferred_goto_scene', "res://ScreenEnd/ScreenEnd.tscn")
 	else:

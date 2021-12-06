@@ -118,3 +118,47 @@ frames = SubResource( 9 )
 position = Vector2( 50, 550 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 11 )
+
+[node name="MovementLabel" type="Label" parent="."]
+margin_left = 110.953
+margin_top = 534.674
+margin_right = 262.953
+margin_bottom = 565.674
+custom_fonts/font = SubResource( 1 )
+text = "Increased Movement Speed!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JumpLabel" type="Label" parent="."]
+margin_left = 110.953
+margin_top = 534.674
+margin_right = 262.953
+margin_bottom = 565.674
+custom_fonts/font = SubResource( 1 )
+text = "Jump Is Ready!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InvisLabel" type="Label" parent="."]
+margin_left = 110.953
+margin_top = 534.674
+margin_right = 262.953
+margin_bottom = 565.674
+custom_fonts/font = SubResource( 1 )
+text = "Invisibility Is Ready!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Counter" type="Label" parent="."]
+margin_left = 110.286
+margin_top = 534.007
+margin_right = 272.286
+margin_bottom = 565.007
+custom_fonts/font = SubResource( 1 )
+text = "Ability Ready in Xs"
+__meta__ = {
+"_edit_use_anchors_": false
+}
