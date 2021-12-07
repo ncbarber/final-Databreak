@@ -15,6 +15,7 @@ var is_startup = true
 
 func _ready() -> void:
 	var _connectionGameOver = SignalManager.connect("send_game_over", self, "_handle_Game_Over")
+	var _connectionMainMenu = SignalManager.connect("send_main_menu", self, "_handle_Main_Menu")
 	var _connectionUnlock = SignalManager.connect("door_unlocked", self, "_handle_unlock")
 
 
@@ -97,6 +98,14 @@ func _deferred_goto_scene(path) -> void:
 func _handle_Game_Over() -> void:
 	if(!is_startup):
 		call_deferred('_deferred_goto_scene', "res://ScreenEnd/ScreenEnd.tscn")
+	else:
+		is_startup=false
+	room_array.clear()
+	ability_set('')
+	
+func _handle_Main_Menu() -> void:
+	if(!is_startup):
+		call_deferred('_deferred_goto_scene', "res://ScreenStart/ScreenStart.tscn")
 	else:
 		is_startup=false
 	room_array.clear()

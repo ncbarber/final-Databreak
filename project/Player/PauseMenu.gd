@@ -19,8 +19,7 @@ func _on_Resume_pressed():
 
 
 func _on_MainMenu_pressed():
-	var _ignored := get_tree().change_scene("res://ScreenStart/ScreenStart.tscn")
-	queue_free()
+	SignalManager.emit_signal("main_menu")
 
 
 func _on_Quit_pressed():
