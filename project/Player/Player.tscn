@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/DatabreakCharacter.png" type="Texture" id=2]
 [ext_resource path="res://Player/DatabreakCharacterJumpFrame.png" type="Texture" id=3]
 [ext_resource path="res://Player/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player/Databreak_Theme.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Player/PauseMenu.tscn" type="PackedScene" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -133,57 +134,7 @@ zoom = Vector2( 2, 2 )
 
 [node name="HUD" parent="Camera2D" instance=ExtResource( 4 )]
 
-[node name="PauseMenu" type="Popup" parent="Camera2D/HUD"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -45.4559
-margin_top = -59.598
-margin_right = -5.45587
-margin_bottom = -19.598
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="Camera2D/HUD/PauseMenu"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -183.5
-margin_top = -115.5
-margin_right = 183.5
-margin_bottom = 115.5
-color = Color( 0.552941, 0.552941, 0.552941, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Resume" type="Button" parent="Camera2D/HUD/PauseMenu"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -20.0
-margin_top = -70.0
-margin_right = 44.0
-margin_bottom = -50.0
-text = "Resume"
-
-[node name="MainMenu" type="Button" parent="Camera2D/HUD/PauseMenu"]
-margin_right = 83.0
-margin_bottom = 20.0
-text = "Main Menu"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Quit" type="Button" parent="Camera2D/HUD/PauseMenu"]
-margin_top = 30.0
-margin_right = 77.0
-margin_bottom = 50.0
-text = "Exit Game"
+[node name="PauseMenu" parent="Camera2D/HUD" instance=ExtResource( 6 )]
 
 [node name="InvisibilityTimer" type="Timer" parent="."]
 wait_time = 3.0
