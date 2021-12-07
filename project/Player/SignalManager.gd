@@ -7,7 +7,7 @@ signal usb_entered
 signal game_over
 signal send_game_over
 
-signal unlock
+signal unlock 
 signal door_unlocked
 
 signal invisible
@@ -19,7 +19,7 @@ signal handle_floppy
 signal handle_usb
 
 
-func _ready() ->void:
+func _ready() -> void:
 	var _connectionFloppy = connect('floppy_entered', self, '_on_floppy_entered')
 	var _connectionUSB = connect('usb_entered', self, '_on_usb_entered')
 	var _connectionGameOver = connect('game_over', self, '_on_game_over')
