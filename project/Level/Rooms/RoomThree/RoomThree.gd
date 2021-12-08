@@ -15,11 +15,11 @@ func _ready() -> void:
 		spawn = SPAWN_POSITION
 	else:
 		spawn = DOOR_POSITION
-#		SignalManager.emit_signal("exit_direction", DOOR_POSITION)
 	_set_up_Enemies()
 	_set_up_ability()
 	_set_up_floppy()
 	_make_player()
+	SignalManager.emit_signal("exit_direction", DOOR_POSITION)
 
 
 func _make_player() -> void:

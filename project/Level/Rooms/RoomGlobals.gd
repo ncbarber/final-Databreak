@@ -104,6 +104,7 @@ func _handle_Game_Over() -> void:
 	room_array.clear()
 	ability_set('')
 	
+	
 func _handle_Main_Menu() -> void:
 	if(!is_startup):
 		call_deferred('_deferred_goto_scene', "res://ScreenStart/ScreenStart.tscn")

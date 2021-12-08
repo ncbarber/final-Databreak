@@ -24,8 +24,7 @@ func _ready() -> void:
 	# On ready we set up the global connections that will communicate to change items on the HUD
 	var _connectionFloppy = SignalManager.connect("handle_floppy", self, "_handle_Floppy")
 	var _connectionUSB = SignalManager.connect("handle_usb", self, "_handle_USB")
-#	var _connectionExitDirection = SignalManager.connect("exit_direction", self, "getExitDirection", [exit_location])
-#	var _connectionGameOver = SignalManager.connect("send_game_over", self, "_handle_Game_Over")
+	var _connectionExitDirection = SignalManager.connect("exit_door_location", self, "getExitDirection")
 	$Camera2D/HUD/Movement.visible = false
 	$Camera2D/HUD/Invis.visible = false
 	$Camera2D/HUD/Jump.visible = false
@@ -187,7 +186,9 @@ func _handle_Floppy() -> void:
 		$Camera2D/HUD/Floppy2.visible = false
 
 
-#func getExitDirection(vector):
+func getExitDirection(vector) -> void:
 	#Vector2 direction = vector
 	#float angle = Vector2.Forward.AngleTo(vector)
+	print("Here")
+	print(vector)
 #	$Camera2D/HUD/ExitArrow.look_at(vector)
