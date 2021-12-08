@@ -122,7 +122,20 @@ func _set_inputs() -> void:
 		$Camera2D/HUD/Movement.visible = true
 		$Camera2D/HUD/Invis.visible = false
 		$Camera2D/HUD/Jump.visible = false
+		
+		
+	if RoomGlobals.ability_get() == 'blink':
+		
+		$Camera2D/HUD/Movement.visible = false
+		$Camera2D/HUD/Invis.visible = false
+		$Camera2D/HUD/Jump.visible = false
 
+	if RoomGlobals.ability_get() == 'blink' and !is_blocked:
+		if ability:
+			position = Vector2(500,0)
+			$AbilityCooldown.start()
+		
+		
 
 func _physics_process(delta) -> void:
 	_set_inputs()
