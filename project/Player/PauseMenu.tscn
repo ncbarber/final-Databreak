@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/PauseMenu.gd" type="Script" id=1]
+[ext_resource path="res://Common/Staatliches-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 2 )
 
 [node name="PauseMenu" type="Control"]
 pause_mode = 2
@@ -30,6 +43,7 @@ margin_left = -64.0
 margin_top = -60.0
 margin_right = 64.0
 margin_bottom = -20.0
+custom_fonts/font = SubResource( 1 )
 text = "Resume"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -44,6 +58,7 @@ margin_left = -64.0
 margin_top = 20.0
 margin_right = 64.0
 margin_bottom = 60.0
+custom_fonts/font = SubResource( 2 )
 text = "Main Menu"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -58,6 +73,7 @@ margin_left = -64.0
 margin_top = 100.0
 margin_right = 64.0
 margin_bottom = 140.0
+custom_fonts/font = SubResource( 3 )
 text = "Quit Game"
 __meta__ = {
 "_edit_use_anchors_": false
