@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Enemy/Databreak_Drone.png" type="Texture" id=1]
 [ext_resource path="res://Enemy/Enemy.gd" type="Script" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://Enemy/Databreak_DroneAlarm.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.2372, 30.1792 )
+extents = Vector2( 21.6339, 30.899 )
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
@@ -67,6 +67,9 @@ animations = [ {
 "speed": 100.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 55.3875, 9.76563 )
+
 [node name="Enemy" type="KinematicBody2D"]
 position = Vector2( 490.008, 296.882 )
 script = ExtResource( 2 )
@@ -111,7 +114,7 @@ __meta__ = {
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 12 )
-frame = 5
+frame = 6
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -143,7 +146,20 @@ autoplay = true
 [node name="Alarm" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
 
+[node name="StunCollision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StunCollision"]
+position = Vector2( -6.10352e-05, -70.015 )
+shape = SubResource( 13 )
+
+[node name="StunTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
 [connection signal="body_entered" from="Light" to="." method="_on_Light_body_entered"]
 [connection signal="body_exited" from="Light" to="." method="_on_Light_body_exited"]
 [connection signal="body_entered" from="KillBox" to="." method="_on_KillBox_body_entered"]
 [connection signal="timeout" from="DisengageTimer" to="." method="_on_DisengageTimer_timeout"]
+[connection signal="body_exited" from="StunCollision" to="." method="_on_StunCollision_body_exited"]
+[connection signal="timeout" from="StunTimer" to="." method="_on_StunTimer_timeout"]

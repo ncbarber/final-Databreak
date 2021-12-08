@@ -10,7 +10,8 @@ var velocity := Vector2()
 var is_moving_left := false
 var direction := 1
 var rotation_position := 15
-var state := "Idle" 
+var state := "Idle"
+var pre_stun_y_position := 0
 
 
 var player = null
@@ -41,7 +42,10 @@ func _physics_process(delta) -> void:
 			run_speed = lerp(run_speed,475,delta/3)
 			velocity = position.direction_to(player.position) * run_speed
 			velocity = move_and_slide(velocity, Vector2(0, -1))
-			
+		"Stunned":
+			velocity.y = 0
+			velocity.x = 0
+			velocity = move_and_slide(velocity, Vector2(0, -1))
 
 
 func _on_Light_body_entered(body) -> void:
@@ -59,7 +63,19 @@ func _on_KillBox_body_entered(body)-> void:
 	emit_signal("player_hit", body)
 
 
-func _on_DisengageTimer_timeout()-> void:
+func _on_DisengageTimer_timeout() -> void:
 	state = "Idle"
 	$Alarm.playing = false
 	$Light/LightSprite.modulate = Color(1,1,1,0.34)
+
+
+func _on_StunTimer_timeout() -> void:
+	print("unstunned!")
+	state = "Idle"
+
+
+func _on_StunCollision_body_exited(body) -> void:
+	player = body
+	print("Stunned!")
+	state = "Stunned"
+	$StunTimer.start()
