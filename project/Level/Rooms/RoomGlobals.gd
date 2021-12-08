@@ -28,6 +28,7 @@ func ability_get() -> String:
 
 
 func _start_game() -> void:
+	unlock = false
 	rng.randomize()
 	current_index = 0
 	var room_number = rng.randi_range(1, 4)
