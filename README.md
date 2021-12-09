@@ -1,5 +1,5 @@
 # Databreak
-## Final Project Iteration 2
+## Final Project Iteration 3
 
 
 ## How to Play
@@ -8,6 +8,7 @@ Goal
 You are an agent. Your identity has been leaked to a secret society. Your goal is to make sure that you get your data back. You are running through infinate rooms collecting all of the data. Through these rooms, you will have to dodge enemy drones and collect abilities that will help you along the way. 
 
 Controls
+- Escape key to open the pause menu
 - W or Space or Up Arrow to Jump
 - Hold down W or Space until you turn red for an increased jump
 - A or Left Arrow to move left
@@ -17,7 +18,7 @@ Controls
 
 ## Reflection
 
-The second iteration was definetly a new step for our final project. A lot of the first iteration was setting up a lot of the core peices of a basic game. In this iteration we had a larger focus on having new aspects of a game that we had incorperated into a platformer yet. One of these was having an enemy that had some sort of AI aspect to it. A large eye sore of our previous iteration was the enemy, there were both visual issues and design issues. Those issues were both solved and we came out with a enemy that is a lot more complex and functional. Another key aspect for this iteration was having a somewhat infinate replayability. We wanted the game to be able to be played in a loop basically, so you could play for as long or as little as you'd like. Having this goal get accomplished was something that the group was proud to see be implimented. As for group work as a whole, overall we still did will in making sure to communicate with each other. If thee were parts that others didn't know how to do, there were still people there to step up and help. 
+This third iteration was a clear clean up iteration for the project. Many of the major features that we wanted had been implemented. This iteration had a key focus on making sure that we make things a lot more clear. We had a key point to make sure the player didn't feel lost while playing the game. Having a how to play section that shows the players the basics was our way of doing that. The HUD also got an update making it more clear that you have abilities, and when they can and can't be used. On top of these more clarity centered issues, having a pause menu was another item we implemented so that there was a way to stop playing the game if you just wanted to stop! We also know that we needed some level of fiero, so we made it so that you can jump on an enemy to stop them for a brief time. Overall the group did some good work for this iteration and wrapped to gether a fun and interesting project!
 
 ## Self-Evaluation
 
@@ -49,10 +50,10 @@ The second iteration was definetly a new step for our final project. A lot of th
 - [ ] ⭐ Use different layers and masks to manage collisions and document this in the <code>README.md</code>
 - [X] ⭐ Incorporate pop into your HUD or title screen using <code>Tween</code> or <code>AnimationPlayer</code>
 - [X] ⭐ Include an AI-controlled character
-- [ ] ⭐ Add a pause menu that includes, at minimum, the ability to resume or return to the main menu
+- [X] ⭐ Add a pause menu that includes, at minimum, the ability to resume or return to the main menu
 - [ ] ⭐ The game is released publicly on <code>itch.io</code>, with all the recommended accompanying text, screenshots, gameplay videos, <i>etc.</i>
 
-We have done everything needed in order to get an A on this iteration of the final project!
+We have done everything needed in order to get an A on this final iteration of the final project!
 
 ## Third-Party Resources
 
