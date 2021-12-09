@@ -4,6 +4,7 @@ class_name Player
 
 var jump_speed := -1250
 var run_speed := 375
+var blink := 0
 var gravity := 3200
 var velocity := Vector2()
 var is_jumping := false
@@ -45,14 +46,14 @@ func _set_inputs() -> void:
 	if right:
 		$AnimatedSprite.flip_h = false
 		if is_crouched != true:
-			velocity.x += (run_speed + speed_boost)
+			velocity.x += (run_speed + speed_boost + blink)
 			if is_on_floor():
 				$AnimatedSprite.animation = "walk"
 				$AnimatedSprite.play()
 	if left:
 		$AnimatedSprite.flip_h = true
 		if is_crouched != true:
-			velocity.x -= (run_speed + speed_boost) 
+			velocity.x -= (run_speed + speed_boost + blink) 
 			if is_on_floor():
 				$AnimatedSprite.animation = "walk"
 				$AnimatedSprite.play()
@@ -98,6 +99,12 @@ func _set_inputs() -> void:
 			SignalManager.emit_signal("invisible")
 			$InvisibilityTimer.start()
 			$AbilityCooldown.start()
+			
+		if RoomGlobals.ability_get() == 'blink':
+			blink = 12000
+			SignalManager.emit_signal("blink")
+			$BlinkTimer.start()
+
 	# Here we check what ability we currently have, and then update the HUD as needed as well as handle 
 	# when an ability is used, like invisibility and the jump boost
 	if RoomGlobals.ability_get() == 'jump':
@@ -122,7 +129,15 @@ func _set_inputs() -> void:
 		$Camera2D/HUD/Movement.visible = true
 		$Camera2D/HUD/Invis.visible = false
 		$Camera2D/HUD/Jump.visible = false
-
+		
+		
+	if RoomGlobals.ability_get() == 'blink':
+		
+		$Camera2D/HUD/Movement.visible = false
+		$Camera2D/HUD/Invis.visible = false
+		$Camera2D/HUD/Jump.visible = false
+		
+		
 
 func _physics_process(delta) -> void:
 	_set_inputs()
@@ -157,3 +172,8 @@ func _handle_Floppy() -> void:
 	elif floppy_collected == 2:
 		$Camera2D/HUD/Floppy2.visible = false
 	
+
+
+func _on_BlinkTimer_timeout():
+	blink = 0
+	SignalManager.emit_signal("blink_over")
