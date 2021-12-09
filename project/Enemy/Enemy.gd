@@ -44,10 +44,14 @@ func _physics_process(delta) -> void:
 			run_speed = lerp(run_speed,475,delta/3)
 			velocity = position.direction_to(player.position) * run_speed
 			velocity = move_and_slide(velocity, Vector2(0, -1))
+		"Stunned":
+			velocity.y = 0
+			velocity.x = 0
+			velocity = move_and_slide(velocity, Vector2(0,-1))
 
 
 func _on_Light_body_entered(body) -> void:
-	if playerVisble == true:
+	if playerVisble == true and state != "Stunned":
 		player = body
 		$Alarm.playing = true
 		state = "Chasing"
@@ -55,11 +59,12 @@ func _on_Light_body_entered(body) -> void:
 
 
 func _on_Light_body_exited(_body) -> void:
-	$DisengageTimer.start()
+	if _body is KinematicBody2D and state != "Stunned":
+		$DisengageTimer.start()
 
 
 func _on_KillBox_body_entered(body) -> void:
-	if body == player:
+	if body is KinematicBody2D and state != "Stunned":
 		SignalManager.emit_signal('game_over')
 
 
@@ -87,3 +92,17 @@ func _blink_inactive() -> void:
 	$EnemyCollision.disabled = false
 	$Light/LightCollision.disabled = false
 	$KillBox/CollisionPolygon2D.disabled = false
+
+
+func _on_StunTimer_timeout() -> void:
+	state = "Idle"
+	$StunEffect.visible = false
+
+
+func _on_StunArea_body_entered(body):
+	if body is KinematicBody2D:
+		state = "Stunned"
+		$StunTimer.start()
+		$Alarm.playing = false
+		$Light/LightSprite.modulate = Color(1,1,1,0.34)
+		$StunEffect.visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Enemy/Databreak_Drone.png" type="Texture" id=1]
 [ext_resource path="res://Enemy/Enemy.gd" type="Script" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://Enemy/Databreak_DroneAlarm.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.2372, 30.1792 )
+extents = Vector2( 80.5256, 1.98752 )
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
@@ -67,6 +67,33 @@ animations = [ {
 "speed": 100.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 63.2128, 7.07843 )
+
+[sub_resource type="Gradient" id=15]
+offsets = PoolRealArray( 1.96182e-44, 0.286822, 0.472868, 0.596899, 1 )
+colors = PoolColorArray( 1, 0.956863, 0, 1, 1, 0.956863, 0.0156863, 1, 1, 1, 1, 0, 1, 0.974251, 0.403101, 0.596899, 1, 0.991087, 0.793381, 0.860465 )
+
+[sub_resource type="GradientTexture" id=16]
+gradient = SubResource( 15 )
+
+[sub_resource type="ParticlesMaterial" id=14]
+emission_shape = 1
+emission_sphere_radius = 0.01
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 9.8, 0 )
+initial_velocity = 58.13
+initial_velocity_random = 1.0
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+scale = 4.0
+scale_random = 1.0
+color_ramp = SubResource( 16 )
+hue_variation_random = 0.74
+
 [node name="Enemy" type="KinematicBody2D"]
 position = Vector2( 490.008, 296.882 )
 script = ExtResource( 2 )
@@ -77,11 +104,8 @@ one_shot = true
 autostart = true
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="."]
-position = Vector2( 0.011322, 0.0445251 )
+position = Vector2( 0.364838, -63.7808 )
 shape = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Light" type="Area2D" parent="."]
 position = Vector2( 2.31699, 25.8167 )
@@ -108,7 +132,7 @@ __meta__ = {
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 12 )
-frame = 8
+frame = 7
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -119,7 +143,7 @@ __meta__ = {
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KillBox"]
 position = Vector2( -9.1096, 1.82348 )
 scale = Vector2( 0.80921, 0.787011 )
-polygon = PoolVector2Array( -14.5425, 42.1369, 37.4186, 42.1369, 116.597, -76.5892, -95.6285, -77.8083 )
+polygon = PoolVector2Array( -71.1924, 51.361, 93.95, 51.361, 116.597, -76.5892, -95.6285, -77.8083 )
 
 [node name="DisengageTimer" type="Timer" parent="."]
 wait_time = 3.5
@@ -134,7 +158,27 @@ autoplay = true
 [node name="Alarm" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
 
+[node name="StunArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StunArea"]
+position = Vector2( -6.10352e-05, -74.5998 )
+shape = SubResource( 13 )
+
+[node name="StunTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="StunEffect" type="Particles2D" parent="."]
+visible = false
+amount = 10
+lifetime = 3.5
+speed_scale = 3.75
+explosiveness = 1.0
+process_material = SubResource( 14 )
+
 [connection signal="body_entered" from="Light" to="." method="_on_Light_body_entered"]
 [connection signal="body_exited" from="Light" to="." method="_on_Light_body_exited"]
 [connection signal="body_entered" from="KillBox" to="." method="_on_KillBox_body_entered"]
 [connection signal="timeout" from="DisengageTimer" to="." method="_on_DisengageTimer_timeout"]
+[connection signal="body_entered" from="StunArea" to="." method="_on_StunArea_body_entered"]
+[connection signal="timeout" from="StunTimer" to="." method="_on_StunTimer_timeout"]
