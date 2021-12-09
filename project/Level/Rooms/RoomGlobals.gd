@@ -46,11 +46,12 @@ func _next_room(direction) -> void:
 		current_index += 1
 		_goto_scene(room_number)
 	else:
-		if(current_index == 0):
-			return
-		else:
-			_goto_scene(room_array[current_index-1])
-			current_index -= 1
+		return
+#		if(current_index == 0):
+#			return
+#		else:
+#			_goto_scene(room_array[current_index-1])
+#			current_index -= 1
 
 
 func _goto_scene(room_number) -> void:
