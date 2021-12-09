@@ -12,6 +12,7 @@ var direction := 1
 var rotation_position := 15
 var state := "Idle" 
 var player = null
+var tutorial = false
 
 
 func _ready() -> void:
@@ -64,7 +65,7 @@ func _on_Light_body_exited(_body) -> void:
 
 
 func _on_KillBox_body_entered(body) -> void:
-	if body is KinematicBody2D and state != "Stunned":
+	if body is KinematicBody2D and state != "Stunned" and !tutorial:
 		SignalManager.emit_signal('game_over')
 
 
