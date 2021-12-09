@@ -11,9 +11,12 @@ var is_moving_left := false
 var direction := 1
 var rotation_position := 15
 var state := "Idle"
+<<<<<<< Updated upstream
 var pre_stun_y_position := 0
 
 
+=======
+>>>>>>> Stashed changes
 var player = null
 
 
@@ -46,6 +49,7 @@ func _physics_process(delta) -> void:
 			velocity.y = 0
 			velocity.x = 0
 			velocity = move_and_slide(velocity, Vector2(0, -1))
+<<<<<<< Updated upstream
 
 
 func _on_Light_body_entered(body) -> void:
@@ -61,6 +65,27 @@ func _on_Light_body_exited(_body)-> void:
 
 func _on_KillBox_body_entered(body)-> void:
 	emit_signal("player_hit", body)
+=======
+			
+
+
+func _on_Light_body_entered(body) -> void:
+	if playerVisble == true and state != "Stunned":
+		player = body
+		$Alarm.playing = true
+		state = "Chasing"
+	
+
+
+func _on_Light_body_exited(_body) -> void:
+	if _body is KinematicBody2D and state != "Stunned":
+		$DisengageTimer.start()
+
+
+func _on_KillBox_body_entered(body) -> void:
+	if body is KinematicBody2D and state != "Stunned":
+		SignalManager.emit_signal('game_over')
+>>>>>>> Stashed changes
 
 
 func _on_DisengageTimer_timeout() -> void:
@@ -74,8 +99,29 @@ func _on_StunTimer_timeout() -> void:
 	state = "Idle"
 
 
+<<<<<<< Updated upstream
 func _on_StunCollision_body_exited(body) -> void:
 	player = body
 	print("Stunned!")
 	state = "Stunned"
 	$StunTimer.start()
+=======
+func _blink_inactive() -> void:
+	$EnemyCollision.disabled = false
+	$Light/LightCollision.disabled = false
+	$KillBox/CollisionPolygon2D.disabled = false
+
+
+func _on_Area2D_body_entered(body) -> void:
+	if body is KinematicBody2D:
+		state = "Stunned"
+		$StunTimer.start()
+		$Alarm.playing = false
+		$Light/LightSprite.modulate = Color(1,1,1,0.34)
+		$StunEffect.visible = true
+
+
+func _on_StunTimer_timeout() -> void :
+	state = "Idle"
+	$StunEffect.visible = false
+>>>>>>> Stashed changes

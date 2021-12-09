@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=19 format=2]
+=======
+[gd_scene load_steps=22 format=2]
+>>>>>>> Stashed changes
 
 [ext_resource path="res://Enemy/Databreak_Drone.png" type="Texture" id=1]
 [ext_resource path="res://Enemy/Enemy.gd" type="Script" id=2]
@@ -7,7 +11,11 @@
 [ext_resource path="res://Enemy/Databreak_DroneAlarm.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
+<<<<<<< Updated upstream
 extents = Vector2( 21.6339, 30.899 )
+=======
+extents = Vector2( 82.8069, 1.56464 )
+>>>>>>> Stashed changes
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
@@ -68,7 +76,35 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=13]
+<<<<<<< Updated upstream
 extents = Vector2( 55.3875, 9.76563 )
+=======
+extents = Vector2( 72.2102, 7.29869 )
+
+[sub_resource type="Gradient" id=14]
+offsets = PoolRealArray( 0, 0.162791, 0.596899 )
+colors = PoolColorArray( 0.882353, 0.956863, 0.0627451, 0.870588, 0.898039, 0.972549, 0.0705882, 1, 0.985768, 0.967613, 0.793235, 0 )
+
+[sub_resource type="GradientTexture" id=15]
+gradient = SubResource( 14 )
+
+[sub_resource type="ParticlesMaterial" id=16]
+emission_shape = 1
+emission_sphere_radius = 0.01
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 9.8, 0 )
+initial_velocity = 58.13
+initial_velocity_random = 1.0
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+scale = 4.0
+scale_random = 1.0
+color_ramp = SubResource( 15 )
+hue_variation_random = 0.74
+>>>>>>> Stashed changes
 
 [node name="Enemy" type="KinematicBody2D"]
 position = Vector2( 490.008, 296.882 )
@@ -80,11 +116,8 @@ one_shot = true
 autostart = true
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="."]
-position = Vector2( 0.011322, 0.0445251 )
+position = Vector2( -0.656128, -63.6699 )
 shape = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Light" type="Area2D" parent="."]
 position = Vector2( 2.31699, 25.8167 )
@@ -114,7 +147,11 @@ __meta__ = {
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 12 )
+<<<<<<< Updated upstream
 frame = 6
+=======
+frame = 2
+>>>>>>> Stashed changes
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -128,10 +165,14 @@ __meta__ = {
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KillBox"]
 position = Vector2( -9.1096, 1.82348 )
 scale = Vector2( 0.80921, 0.787011 )
+<<<<<<< Updated upstream
 polygon = PoolVector2Array( -14.5425, 42.1369, 37.4186, 42.1369, 116.597, -76.5892, -95.6285, -77.8083 )
 __meta__ = {
 "_edit_lock_": true
 }
+=======
+polygon = PoolVector2Array( -73.6577, 52.564, 100.292, 51.432, 120.109, -74.2203, -102.282, -73.0883 )
+>>>>>>> Stashed changes
 
 [node name="DisengageTimer" type="Timer" parent="."]
 wait_time = 3.5
@@ -146,20 +187,43 @@ autoplay = true
 [node name="Alarm" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
 
+<<<<<<< Updated upstream
 [node name="StunCollision" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StunCollision"]
 position = Vector2( -6.10352e-05, -70.015 )
+=======
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -0.629974, -75.5952 )
+>>>>>>> Stashed changes
 shape = SubResource( 13 )
 
 [node name="StunTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+<<<<<<< Updated upstream
 autostart = true
+=======
+
+[node name="StunEffect" type="Particles2D" parent="."]
+visible = false
+position = Vector2( 0, 26.6968 )
+amount = 10
+lifetime = 3.5
+speed_scale = 3.75
+explosiveness = 1.0
+process_material = SubResource( 16 )
+>>>>>>> Stashed changes
 
 [connection signal="body_entered" from="Light" to="." method="_on_Light_body_entered"]
 [connection signal="body_exited" from="Light" to="." method="_on_Light_body_exited"]
 [connection signal="body_entered" from="KillBox" to="." method="_on_KillBox_body_entered"]
 [connection signal="timeout" from="DisengageTimer" to="." method="_on_DisengageTimer_timeout"]
+<<<<<<< Updated upstream
 [connection signal="body_exited" from="StunCollision" to="." method="_on_StunCollision_body_exited"]
+=======
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+>>>>>>> Stashed changes
 [connection signal="timeout" from="StunTimer" to="." method="_on_StunTimer_timeout"]
