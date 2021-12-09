@@ -14,6 +14,7 @@
 [ext_resource path="res://Level/Databreak_Background2.png" type="Texture" id=12]
 [ext_resource path="res://Level/RightSign.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Level/LeftSign.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Collectables/Abilities/Blink/Blink.tscn" type="PackedScene" id=13]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
@@ -149,6 +150,7 @@ script = ExtResource( 2 )
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 2509.23, 47.0901 )
 motion_scale = Vector2( 0.5, 0.5 )
 motion_mirroring = Vector2( 2000, 0 )
 
@@ -158,6 +160,7 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 12 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 6.72729, 1002.35 )
 motion_scale = Vector2( 0.5, 0.5 )
 motion_mirroring = Vector2( 2000, 0 )
 
@@ -202,6 +205,9 @@ position = Vector2( 809.142, -375.128 )
 position = Vector2( 809.359, -373.038 )
 
 [node name="MovementSpeed" parent="." instance=ExtResource( 9 )]
+position = Vector2( 811.185, -372.521 )
+
+[node name="Blink" parent="." instance=ExtResource( 13 )]
 position = Vector2( 811.185, -372.521 )
 
 [node name="Enemy" parent="." instance=ExtResource( 7 )]

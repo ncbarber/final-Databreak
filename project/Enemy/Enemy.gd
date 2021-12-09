@@ -19,6 +19,8 @@ func _ready() -> void:
 		$Sprite.flip_h = false
 	var _connectionInvis = SignalManager.connect("player_invisible", self, "_on_player_invisible")
 	var _connectionVis = SignalManager.connect("player_visible", self, "_on_player_visible")
+	var _connectionBlink = SignalManager.connect("enemy_blink", self, "_blink_active")
+	var _connectionUnBlink = SignalManager.connect("enemy_blink_over", self, "_blink_inactive")
 
 
 func _physics_process(delta) -> void:
@@ -73,3 +75,15 @@ func _on_player_invisible() -> void:
 
 func _on_player_visible() -> void:
 	playerVisble = true
+
+
+func _blink_active() -> void:
+	$EnemyCollision.disabled = true
+	$Light/LightCollision.disabled = true
+	$KillBox/CollisionPolygon2D.disabled = true
+
+
+func _blink_inactive() -> void:
+	$EnemyCollision.disabled = false
+	$Light/LightCollision.disabled = false
+	$KillBox/CollisionPolygon2D.disabled = false

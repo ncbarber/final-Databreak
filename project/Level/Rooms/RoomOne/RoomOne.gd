@@ -31,6 +31,7 @@ func _on_SpawnArea_body_entered(_body) -> void:
 	if RoomGlobals.loading:
 		return
 	else:
+#		return
 		RoomGlobals._next_room(0)
 #		RoomGlobals.unlock = false
 
@@ -53,19 +54,27 @@ func _on_DoorArea_body_exited(_body) -> void:
 
 func _set_up_ability() -> void:
 	randomize()
-	var num := rand_range(1,3)
+	var num := rand_range(1,4)
 	num = int(round(num))
 	if num == 1:
 		$JumpBoost.queue_free()
 		$MovementSpeed.queue_free()
+		$Blink.queue_free()
 		
 	if num == 2:
 		$Invisibility.queue_free()
 		$MovementSpeed.queue_free()
+		$Blink.queue_free()
 		
 	if num == 3:
 		$Invisibility.queue_free()
 		$JumpBoost.queue_free()
+		$Blink.queue_free()
+		
+	if num == 4:
+		$Invisibility.queue_free()
+		$JumpBoost.queue_free()
+		$MovementSpeed.queue_free()
 
 
 func _set_up_Enemies() -> void:
