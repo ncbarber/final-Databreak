@@ -11,10 +11,7 @@ var spawn : Vector2
 
 func _ready() -> void:
 	RoomGlobals.loading = true
-	if(RoomGlobals.spawn_location):
-		spawn = SPAWN_POSITION
-	else:
-		spawn = DOOR_POSITION
+	spawn = SPAWN_POSITION
 	_set_up_Enemies()
 	_set_up_ability()
 	_set_up_floppy()
@@ -31,11 +28,13 @@ func _on_SpawnArea_body_entered(_body) -> void:
 	if RoomGlobals.loading:
 		return
 	else:
-		RoomGlobals._next_room(0)
+		return
+#		RoomGlobals._next_room(0)
 
 
 func _on_SpawnArea_body_exited(_body) -> void:
 	RoomGlobals.loading = false
+	RoomGlobals._next_room(0)
 
 
 func _on_DoorArea_body_entered(_body) -> void:
@@ -52,19 +51,27 @@ func _on_DoorArea_body_exited(_body) -> void:
 
 func _set_up_ability() -> void:
 	randomize()
-	var num := rand_range(1,3)
+	var num := rand_range(1,4)
 	num = int(round(num))
 	if num == 1:
 		$JumpBoost.queue_free()
 		$MovementSpeed.queue_free()
+		$Blink.queue_free()
 		
 	if num == 2:
 		$Invisibility.queue_free()
 		$MovementSpeed.queue_free()
+		$Blink.queue_free()
 		
 	if num == 3:
 		$Invisibility.queue_free()
 		$JumpBoost.queue_free()
+		$Blink.queue_free()
+		
+	if num == 4:
+		$Invisibility.queue_free()
+		$JumpBoost.queue_free()
+		$MovementSpeed.queue_free()
 
 
 func _set_up_Enemies() -> void:

@@ -20,6 +20,8 @@ func _ready() -> void:
 		$Sprite.flip_h = false
 	var _connectionInvis = SignalManager.connect("player_invisible", self, "_on_player_invisible")
 	var _connectionVis = SignalManager.connect("player_visible", self, "_on_player_visible")
+	var _connectionBlink = SignalManager.connect("enemy_blink", self, "_blink_active")
+	var _connectionUnBlink = SignalManager.connect("enemy_blink_over", self, "_blink_inactive")
 
 
 func _physics_process(delta) -> void:
@@ -43,10 +45,14 @@ func _physics_process(delta) -> void:
 			run_speed = lerp(run_speed,475,delta/3)
 			velocity = position.direction_to(player.position) * run_speed
 			velocity = move_and_slide(velocity, Vector2(0, -1))
+		"Stunned":
+			velocity.y = 0
+			velocity.x = 0
+			velocity = move_and_slide(velocity, Vector2(0,-1))
 
 
 func _on_Light_body_entered(body) -> void:
-	if playerVisble == true:
+	if playerVisble == true and state != "Stunned":
 		player = body
 		$Alarm.playing = true
 		state = "Chasing"
@@ -54,11 +60,12 @@ func _on_Light_body_entered(body) -> void:
 
 
 func _on_Light_body_exited(_body) -> void:
-	$DisengageTimer.start()
+	if _body is KinematicBody2D and state != "Stunned":
+		$DisengageTimer.start()
 
 
 func _on_KillBox_body_entered(body) -> void:
-	if body == player and !tutorial:
+	if body is KinematicBody2D and state != "Stunned" and !tutorial:
 		SignalManager.emit_signal('game_over')
 
 
@@ -74,3 +81,29 @@ func _on_player_invisible() -> void:
 
 func _on_player_visible() -> void:
 	playerVisble = true
+
+
+func _blink_active() -> void:
+	$EnemyCollision.disabled = true
+	$Light/LightCollision.disabled = true
+	$KillBox/CollisionPolygon2D.disabled = true
+
+
+func _blink_inactive() -> void:
+	$EnemyCollision.disabled = false
+	$Light/LightCollision.disabled = false
+	$KillBox/CollisionPolygon2D.disabled = false
+
+
+func _on_StunTimer_timeout() -> void:
+	state = "Idle"
+	$StunEffect.visible = false
+
+
+func _on_StunArea_body_entered(body):
+	if body is KinematicBody2D:
+		state = "Stunned"
+		$StunTimer.start()
+		$Alarm.playing = false
+		$Light/LightSprite.modulate = Color(1,1,1,0.34)
+		$StunEffect.visible = true
