@@ -32,11 +32,13 @@ func _on_SpawnArea_body_entered(_body) -> void:
 	if RoomGlobals.loading:
 		return
 	else:
-		RoomGlobals._next_room(0)
+		return
+#		RoomGlobals._next_room(0)
 
 
 func _on_SpawnArea_body_exited(_body) -> void:
 	RoomGlobals.loading = false
+	RoomGlobals._next_room(0)
 
 
 func _on_DoorArea_body_entered(_body) -> void:

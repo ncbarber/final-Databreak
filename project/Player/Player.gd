@@ -10,6 +10,7 @@ var velocity := Vector2()
 var door_location := Vector2()
 var is_jumping := false
 var is_crouched := false
+var is_firstLoad := false
 var lives_remaining := 3
 var speed_boost := 0
 var is_blocked := false
@@ -25,6 +26,8 @@ func _ready() -> void:
 	# On ready we set up the global connections that will communicate to change items on the HUD
 	var _connectionFloppy = SignalManager.connect("handle_floppy", self, "_handle_Floppy")
 	var _connectionUSB = SignalManager.connect("handle_usb", self, "_handle_USB")
+	$Camera2D/HUD/DataToCollect.visible = true
+	$Camera2D/HUD/DoorUnlocked.visible = false
 	$Camera2D/HUD/Movement.visible = false
 	$Camera2D/HUD/Invis.visible = false
 	$Camera2D/HUD/Jump.visible = false
@@ -32,10 +35,9 @@ func _ready() -> void:
 	$Camera2D/HUD/InvisLabel.visible = false
 	$Camera2D/HUD/JumpLabel.visible = false
 	$Camera2D/HUD/Counter.visible = false
-	$Camera2D/HUD/DataToCollect.visible = true
-	$Camera2D/HUD/DoorUnlocked.visible = false
 	$Camera2D/HUD/Blink.visible = false
 	$Camera2D/HUD/BlinkLabel.visible = false
+#	RoomGlobals.ability_set('')
 
 
 func _set_inputs() -> void:
@@ -176,10 +178,18 @@ func _set_inputs() -> void:
 			$Camera2D/HUD/Blink.modulate.a8 = 255
 			$Camera2D/HUD/Counter.visible = false
 			$Camera2D/HUD/BlinkLabel.visible = true
+		
+	if RoomGlobals.ability_get() == '':
+		$Camera2D/HUD/BlinkLabel.visible = false
+		$Camera2D/HUD/Blink.visible = false
 
 
 func _physics_process(delta) -> void:
 	_set_inputs()
+	if is_firstLoad and $Camera2D/HUD/Blink.visible == true and $Camera2D/HUD/BlinkLabel.visible == true:
+		$Camera2D/HUD/Blink.visible = false
+		$Camera2D/HUD/BlinkLabel.visible = false
+		is_firstLoad = false
 	timer = $AbilityCooldown.time_left
 	$Camera2D/HUD/Counter.text = "Ability Ready in: %d s" % timer
 	if floppy_collected == 2 and usb_collected == 1:
