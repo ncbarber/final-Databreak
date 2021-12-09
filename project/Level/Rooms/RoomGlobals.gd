@@ -15,6 +15,7 @@ var is_startup = true
 
 func _ready() -> void:
 	var _connectionGameOver = SignalManager.connect("send_game_over", self, "_handle_Game_Over")
+	var _connectionMainMenu = SignalManager.connect("send_main_menu", self, "_handle_Main_Menu")
 	var _connectionUnlock = SignalManager.connect("door_unlocked", self, "_handle_unlock")
 
 
@@ -27,6 +28,7 @@ func ability_get() -> String:
 
 
 func _start_game() -> void:
+	unlock = false
 	rng.randomize()
 	current_index = 0
 	var room_number = rng.randi_range(1, 4)
@@ -96,11 +98,17 @@ func _deferred_goto_scene(path) -> void:
 	
 	
 func _handle_Game_Over() -> void:
-	#var currentPath = get_tree().get_root().get_path()
-	#var _c = ResourceLoader.load(currentPath)
-#	var scene = get_tree().current_scene
 	if(!is_startup):
 		call_deferred('_deferred_goto_scene', "res://ScreenEnd/ScreenEnd.tscn")
+	else:
+		is_startup=false
+	room_array.clear()
+	ability_set('')
+	
+	
+func _handle_Main_Menu() -> void:
+	if(!is_startup):
+		call_deferred('_deferred_goto_scene', "res://ScreenStart/ScreenStart.tscn")
 	else:
 		is_startup=false
 	room_array.clear()

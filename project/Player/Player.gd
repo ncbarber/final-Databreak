@@ -7,6 +7,7 @@ var run_speed := 375
 var blink := 0
 var gravity := 3200
 var velocity := Vector2()
+var door_location := Vector2()
 var is_jumping := false
 var is_crouched := false
 var lives_remaining := 3
@@ -17,16 +18,22 @@ var usb : Area2D
 var floppy : Area2D
 var floppy_collected := 0
 var usb_collected := 0
+var timer := 0
 
 
 func _ready() -> void:
 	# On ready we set up the global connections that will communicate to change items on the HUD
 	var _connectionFloppy = SignalManager.connect("handle_floppy", self, "_handle_Floppy")
 	var _connectionUSB = SignalManager.connect("handle_usb", self, "_handle_USB")
-#	var _connectionGameOver = SignalManager.connect("send_game_over", self, "_handle_Game_Over")
 	$Camera2D/HUD/Movement.visible = false
 	$Camera2D/HUD/Invis.visible = false
 	$Camera2D/HUD/Jump.visible = false
+	$Camera2D/HUD/MovementLabel.visible = false
+	$Camera2D/HUD/InvisLabel.visible = false
+	$Camera2D/HUD/JumpLabel.visible = false
+	$Camera2D/HUD/Counter.visible = false
+	$Camera2D/HUD/DataToCollect.visible = true
+	$Camera2D/HUD/DoorUnlocked.visible = false
 	$Camera2D/HUD/Blink.visible = false
 
 
@@ -114,26 +121,42 @@ func _set_inputs() -> void:
 		$Camera2D/HUD/Movement.visible = false
 		$Camera2D/HUD/Invis.visible = false
 		$Camera2D/HUD/Jump.visible = true
+		$Camera2D/HUD/MovementLabel.visible = false
+		$Camera2D/HUD/InvisLabel.visible = false
 		$Camera2D/HUD/Blink.visible = false
 		if is_blocked:
 			$Camera2D/HUD/Jump.modulate.a8 = 50
+			$Camera2D/HUD/Counter.visible = true
+			$Camera2D/HUD/JumpLabel.visible = false
 		if !is_blocked:
 			$Camera2D/HUD/Jump.modulate.a8 = 255
+			$Camera2D/HUD/Counter.visible = false
+			$Camera2D/HUD/JumpLabel.visible = true
 			
 	if RoomGlobals.ability_get() == 'invisible':
 		$Camera2D/HUD/Movement.visible = false
 		$Camera2D/HUD/Invis.visible = true
 		$Camera2D/HUD/Jump.visible = false
+		$Camera2D/HUD/MovementLabel.visible = false
+		$Camera2D/HUD/JumpLabel.visible = false
 		$Camera2D/HUD/Blink.visible = false
 		if is_blocked:
 			$Camera2D/HUD/Invis.modulate.a8 = 50
+			$Camera2D/HUD/Counter.visible = true
+			$Camera2D/HUD/InvisLabel.visible = false
 		if !is_blocked:
 			$Camera2D/HUD/Invis.modulate.a8 = 255
+			$Camera2D/HUD/Counter.visible = false
+			$Camera2D/HUD/InvisLabel.visible = true
 		
 	if RoomGlobals.ability_get() == 'movement':
 		$Camera2D/HUD/Movement.visible = true
 		$Camera2D/HUD/Invis.visible = false
 		$Camera2D/HUD/Jump.visible = false
+		$Camera2D/HUD/MovementLabel.visible = true
+		$Camera2D/HUD/InvisLabel.visible = false
+		$Camera2D/HUD/JumpLabel.visible = false
+		$Camera2D/HUD/Counter.visible = false
 		$Camera2D/HUD/Blink.visible = false
 		
 	if RoomGlobals.ability_get() == 'blink':
@@ -149,15 +172,18 @@ func _set_inputs() -> void:
 
 func _physics_process(delta) -> void:
 	_set_inputs()
-	if usb_collected == 1 and floppy_collected == 2:
+	timer = $AbilityCooldown.time_left
+	$Camera2D/HUD/Counter.text = "Ability Ready in: %d s" % timer
+	if floppy_collected == 2 and usb_collected == 1:
 		SignalManager.emit_signal("unlock")
 		usb_collected = 0
 		floppy_collected = 0
+		$Camera2D/HUD/DataToCollect.visible = false
+		$Camera2D/HUD/DoorUnlocked.visible = true
 	velocity.y += gravity * delta
 	if is_jumping and is_on_floor() or is_jumping and is_on_ceiling():
 		is_jumping = false
 	velocity = move_and_slide(velocity, Vector2(0, -1))
-
 
 func _on_InvisibilityTimer_timeout() -> void:
 	modulate.a8 = 255
@@ -180,7 +206,6 @@ func _handle_Floppy() -> void:
 	elif floppy_collected == 2:
 		$Camera2D/HUD/Floppy2.visible = false
 	
-
 
 func _on_BlinkTimer_timeout():
 	blink = 0
