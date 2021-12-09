@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Level/Databreak_Background2.png" type="Texture" id=1]
 [ext_resource path="res://Level/Rooms/RoomThree/RoomThree.gd" type="Script" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Collectables/Abilities/Movement Speed/MovementSpeed.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Collectables/Data/FloppyDisk.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Level/Databreak_Background.png" type="Texture" id=12]
+[ext_resource path="res://Level/RightSign.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Level/LeftSign.tscn" type="PackedScene" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
@@ -235,6 +237,33 @@ position = Vector2( 432.123, 64.6511 )
 
 [node name="USB" parent="." instance=ExtResource( 7 )]
 position = Vector2( 4253.77, 1460.57 )
+
+[node name="LeftSign" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3794.03, -180.559 )
+
+[node name="RightSign" parent="." instance=ExtResource( 13 )]
+position = Vector2( 3890.14, -180.559 )
+
+[node name="RightSign2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 2064.08, -436.849 )
+
+[node name="LeftSign2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2576.65, 75.73 )
+
+[node name="RightSign3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 736.104, 1480.38 )
+
+[node name="RightSign4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 726.591, 1095.08 )
+
+[node name="RightSign5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 2343.91, 709.777 )
+
+[node name="RightSign6" parent="." instance=ExtResource( 13 )]
+position = Vector2( 3124.03, 1485.14 )
+
+[node name="LeftSign3" parent="." instance=ExtResource( 14 )]
+position = Vector2( -205.748, 590.856 )
 
 [connection signal="body_entered" from="Spawn/SpawnArea" to="." method="_on_SpawnArea_body_entered"]
 [connection signal="body_exited" from="Spawn/SpawnArea" to="." method="_on_SpawnArea_body_exited"]

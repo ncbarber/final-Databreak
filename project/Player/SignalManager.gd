@@ -36,7 +36,6 @@ func _ready() -> void:
 	emit_signal('unlock')
 	emit_signal("invisible")
 	emit_signal("visible")
-	emit_signal("exit_direction", Vector2())
 
 
 func _on_floppy_entered() -> void:
