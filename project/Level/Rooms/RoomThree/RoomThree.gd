@@ -11,10 +11,7 @@ var spawn : Vector2
 
 func _ready() -> void:
 	RoomGlobals.loading = true
-	if(RoomGlobals.spawn_location):
-		spawn = SPAWN_POSITION
-	else:
-		spawn = DOOR_POSITION
+	spawn = SPAWN_POSITION
 	_set_up_Enemies()
 	_set_up_ability()
 	_set_up_floppy()
