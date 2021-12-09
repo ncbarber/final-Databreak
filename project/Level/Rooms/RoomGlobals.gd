@@ -99,13 +99,13 @@ func _deferred_goto_scene(path) -> void:
 	
 	
 func _handle_Game_Over() -> void:
+	print("Final Score: %d" % room_array.size())
 	if(!is_startup):
 		call_deferred('_deferred_goto_scene', "res://ScreenEnd/ScreenEnd.tscn")
 	else:
 		is_startup=false
 	room_array.clear()
 	ability_set('')
-	
 	
 	
 func _handle_Main_Menu() -> void:
