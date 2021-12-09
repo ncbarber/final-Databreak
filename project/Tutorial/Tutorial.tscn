@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Level/Databreak_LevelBlocks.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://Common/DatabreakBinary0.png" type="Texture" id=9]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Collectables/Abilities/Invisibility/Invisibility.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Collectables/Abilities/Movement Speed/MovementSpeed.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Collectables/Abilities/Blink/Blink.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Collectables/Abilities/JumpBoost/JumpBoost.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 77.0542, 111.267 )
@@ -177,6 +180,10 @@ frame_0/texture = ExtResource( 8 )
 frame_1/texture = ExtResource( 9 )
 frame_1/delay_sec = 0.0
 
+[sub_resource type="DynamicFont" id=20]
+size = 34
+font_data = ExtResource( 7 )
+
 [sub_resource type="DynamicFont" id=13]
 size = 32
 font_data = ExtResource( 7 )
@@ -186,6 +193,22 @@ size = 35
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=15]
+size = 34
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 34
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 34
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 34
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=17]
 size = 34
 font_data = ExtResource( 7 )
 
@@ -211,7 +234,7 @@ position = Vector2( -3, 0 )
 tile_set = SubResource( 7 )
 cell_size = Vector2( 128, 128 )
 format = 1
-tile_data = PoolIntArray( -1703940, 1, 0, -1769461, 1, 0, -1638404, 1, 0, -1703925, 1, 0, -1572868, 1, 0, -1638389, 1, 0, -1507332, 1, 0, -1572853, 1, 0, -1441796, 1, 0, -1507317, 1, 0, -1376260, 1, 0, -1441781, 1, 0, -1310724, 1, 0, -1376245, 1, 0, -1245188, 1, 0, -1310709, 1, 0, -1179652, 1, 0, -1245173, 1, 0, -1114116, 1, 0, -1179637, 1, 0, -1048580, 1, 0, -1114101, 1, 0, -983044, 1, 0, -1048565, 1, 0, -917508, 1, 0, -983029, 1, 0, -851972, 1, 0, -917493, 1, 0, -786436, 1, 0, -851957, 1, 0, -720900, 1, 0, -786424, 3, 0, -786423, 3, 0, -786422, 3, 0, -786421, 1, 0, -655364, 1, 0, -720885, 1, 0, -589828, 1, 0, -655355, 3, 0, -655354, 3, 0, -655353, 3, 0, -655349, 1, 0, -524292, 1, 0, -589813, 1, 0, -458756, 1, 0, -458755, 3, 0, -458754, 3, 0, -458753, 3, 0, -524288, 3, 0, -524287, 3, 0, -524286, 3, 0, -524285, 3, 0, -524277, 1, 0, -393220, 2, 0, -458741, 1, 0, -327684, 2, 0, -393205, 1, 0, -262148, 1, 0, -327675, 4, 0, -327669, 1, 0, -196612, 1, 0, -262133, 1, 0, -131076, 1, 0, -196597, 1, 0, -65540, 1, 0, -131069, 4, 0, -131068, 4, 0, -131061, 1, 0, -4, 1, 0, -65535, 3, 0, -65534, 3, 0, -65531, 3, 0, -65530, 3, 0, -65525, 1, 0, 65532, 1, 0, 11, 1, 0, 131068, 1, 0, 131069, 2, 0, 131070, 2, 0, 131071, 2, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 2, 0, 65541, 1, 0, 65542, 1, 0, 65543, 2, 0, 65544, 2, 0, 65545, 2, 0, 65546, 1, 0, 65547, 1, 0 )
+tile_data = PoolIntArray( -2097156, 1, 0, -2097155, 1, 0, -2097154, 1, 0, -2097153, 1, 0, -2162688, 1, 0, -2162687, 1, 0, -2162686, 1, 0, -2162685, 1, 0, -2162684, 1, 0, -2162683, 1, 0, -2162682, 1, 0, -2162681, 1, 0, -2162680, 1, 0, -2162679, 1, 0, -2162678, 1, 0, -2162677, 1, 0, -2031620, 1, 0, -2097141, 1, 0, -1966084, 1, 0, -2031605, 1, 0, -1900548, 1, 0, -1966069, 1, 0, -1835012, 1, 0, -1900533, 1, 0, -1769476, 1, 0, -1834997, 1, 0, -1703940, 1, 0, -1769461, 1, 0, -1638404, 1, 0, -1703925, 1, 0, -1572868, 1, 0, -1638389, 1, 0, -1507339, 1, 0, -1507338, 1, 0, -1507337, 1, 0, -1507336, 1, 0, -1507335, 1, 0, -1507334, 1, 0, -1507333, 1, 0, -1507332, 1, 0, -1572853, 1, 0, -1572852, 1, 0, -1572851, 1, 0, -1572850, 1, 0, -1572849, 1, 0, -1572848, 1, 0, -1572847, 1, 0, -1572846, 1, 0, -1441803, 1, 0, -1507310, 1, 0, -1376267, 1, 0, -1441774, 1, 0, -1310731, 1, 0, -1376238, 1, 0, -1245195, 1, 0, -1310702, 1, 0, -1179659, 1, 0, -1245166, 1, 0, -1114123, 1, 0, -1179630, 1, 0, -1048587, 1, 0, -1048586, 1, 0, -1048585, 1, 0, -1048584, 1, 0, -1048583, 1, 0, -1048582, 1, 0, -1048581, 1, 0, -1048580, 1, 0, -1114112, 4, 0, -1114111, 4, 0, -1114110, 4, 0, -1114109, 4, 0, -1114108, 4, 0, -1114107, 4, 0, -1114106, 4, 0, -1114105, 4, 0, -1114104, 4, 0, -1114103, 4, 0, -1114102, 4, 0, -1114101, 1, 0, -1114100, 1, 0, -1114099, 1, 0, -1114098, 1, 0, -1114097, 1, 0, -1114096, 1, 0, -1114095, 1, 0, -1114094, 1, 0, -983044, 1, 0, -983043, 1, 0, -983042, 1, 0, -983041, 1, 0, -1048568, 4, 0, -1048558, 1, 0, -917508, 1, 0, -983032, 4, 0, -983022, 1, 0, -851972, 1, 0, -917496, 4, 0, -917486, 1, 0, -786436, 1, 0, -851960, 4, 0, -851950, 1, 0, -720900, 1, 0, -786424, 3, 0, -786423, 3, 0, -786422, 3, 0, -786414, 1, 0, -655364, 1, 0, -720885, 1, 0, -720884, 1, 0, -720883, 1, 0, -720882, 1, 0, -720881, 1, 0, -720880, 1, 0, -720879, 1, 0, -720878, 1, 0, -589828, 1, 0, -655355, 3, 0, -655354, 3, 0, -655353, 3, 0, -655349, 1, 0, -524292, 1, 0, -589813, 1, 0, -458756, 1, 0, -458755, 3, 0, -458754, 3, 0, -458753, 3, 0, -524288, 3, 0, -524287, 3, 0, -524286, 3, 0, -524285, 3, 0, -524277, 1, 0, -393220, 2, 0, -458741, 1, 0, -327684, 2, 0, -393205, 1, 0, -262148, 1, 0, -327675, 4, 0, -327669, 1, 0, -196612, 1, 0, -262133, 1, 0, -131076, 1, 0, -196597, 1, 0, -65540, 1, 0, -131069, 4, 0, -131068, 4, 0, -131061, 1, 0, -4, 1, 0, -65535, 3, 0, -65534, 3, 0, -65531, 3, 0, -65530, 3, 0, -65525, 1, 0, 65532, 1, 0, 11, 1, 0, 131068, 1, 0, 131069, 2, 0, 131070, 2, 0, 131071, 2, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 2, 0, 65541, 1, 0, 65542, 1, 0, 65543, 2, 0, 65544, 2, 0, 65545, 2, 0, 65546, 1, 0, 65547, 1, 0 )
 
 [node name="WelcomeLabel" type="Label" parent="."]
 margin_left = -280.586
@@ -241,6 +264,18 @@ randomness = 1.0
 process_material = SubResource( 11 )
 texture = SubResource( 12 )
 
+[node name="TutorialLabel" type="Label" parent="."]
+margin_left = -373.358
+margin_top = -403.63
+margin_right = 158.642
+margin_bottom = -359.63
+custom_fonts/font = SubResource( 20 )
+text = "To learn about the game, keep jumping up!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="JumpLabel" type="Label" parent="."]
 margin_left = 36.61
 margin_top = -716.284
@@ -258,24 +293,39 @@ margin_top = -1366.32
 margin_right = 269.823
 margin_bottom = -1321.32
 custom_fonts/font = SubResource( 14 )
-text = "This is an enemy drone. Don't let it detect you!"
+text = "This is an enemy drone. Don't let it detect you!
+Jump on top to deactivate it for a short time!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AbilityLabel" type="Label" parent="."]
-margin_left = 892.507
-margin_top = -1856.7
-margin_right = 1377.51
-margin_bottom = -1812.7
+[node name="InvisibilityLabel" type="Label" parent="."]
+margin_left = 1511.41
+margin_top = -1806.25
+margin_right = 2215.41
+margin_bottom = -1762.25
 custom_fonts/font = SubResource( 15 )
-text = "This is an ability! Press 'V' to activate."
+text = "This is an the invisibility ability! Press 'V' to activate it."
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="USB" parent="." instance=ExtResource( 6 )]
-position = Vector2( 709.37, -757.37 )
+position = Vector2( 761.986, -104.047 )
+
+[node name="DataLabel" type="Label" parent="."]
+margin_left = 227.702
+margin_top = -410.603
+margin_right = 1346.7
+margin_bottom = -272.603
+custom_fonts/font = SubResource( 19 )
+text = "This is a peice of data you collect.
+At the top of the screen it shows what data peices you need.
+Find them all to be able to move on to the next level to collect more more of your data!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( -188.034, -168 )
@@ -284,7 +334,58 @@ position = Vector2( -188.034, -168 )
 position = Vector2( 75.7335, -1570.44 )
 
 [node name="Invisibility" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1290.37, -1595.04 )
+position = Vector2( 1848.73, -1558.04 )
 scale = Vector2( 0.5, 0.5 )
+
+[node name="Blink" parent="." instance=ExtResource( 13 )]
+position = Vector2( -758.438, -2288.69 )
+
+[node name="BlinkLabel" type="Label" parent="."]
+margin_left = -1411.19
+margin_top = -2693.0
+margin_right = -122.19
+margin_bottom = -2555.0
+custom_fonts/font = SubResource( 16 )
+text = "This is the Blink Ability!
+ Press 'V' while moving to burst forward quickly and dodge through enemeies
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MovementSpeed" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1860.77, -2298.21 )
+
+[node name="MovespeedLabel" type="Label" parent="."]
+margin_left = 1588.16
+margin_top = -2577.45
+margin_right = 2142.16
+margin_bottom = -2486.45
+custom_fonts/font = SubResource( 18 )
+text = "This is the movement speed ability!
+It is always active whenever you collect it!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JumpBoost" parent="." instance=ExtResource( 14 )]
+position = Vector2( 701.971, -2349.01 )
+
+[node name="JumpBoostLabel" type="Label" parent="."]
+margin_left = 327.005
+margin_top = -2720.8
+margin_right = 1124.0
+margin_bottom = -2535.8
+custom_fonts/font = SubResource( 17 )
+text = "This is the jump boost ability!
+When the ability is ready press 'w' or 'space' for a higher jump
+If you use your charged jump you'll jump even higher!
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="body_entered" from="Door2/Door2Area" to="." method="_on_Door2Area_body_entered"]

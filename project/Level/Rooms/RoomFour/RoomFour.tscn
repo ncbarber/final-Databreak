@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Level/Databreak_Background2.png" type="Texture" id=1]
 [ext_resource path="res://Level/Rooms/RoomFour/RoomFour.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Level/Databreak_Background.png" type="Texture" id=12]
 [ext_resource path="res://Collectables/Abilities/Blink/Blink.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Level/LeftSign.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Level/RightSign.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
@@ -243,32 +244,32 @@ position = Vector2( 1468.96, -301.589 )
 [node name="LeftSign" parent="." instance=ExtResource( 14 )]
 position = Vector2( 635.435, -184.162 )
 
-[node name="RightSign" parent="." instance=ExtResource( 13 )]
-position = Vector2( 440.494, 964.296 )
-
 [node name="LeftSign2" parent="." instance=ExtResource( 14 )]
 position = Vector2( 491.348, 1485.55 )
-
-[node name="RightSign2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 1182.12, 1485.55 )
 
 [node name="LeftSign3" parent="." instance=ExtResource( 14 )]
 position = Vector2( 2871.69, -109.475 )
 
-[node name="RightSign3" parent="." instance=ExtResource( 13 )]
-position = Vector2( 3379.04, 272.163 )
-
-[node name="RightSign4" parent="." instance=ExtResource( 13 )]
-position = Vector2( 3334.15, 1479.93 )
-
-[node name="RightSign5" parent="." instance=ExtResource( 13 )]
-position = Vector2( 4272.52, 1484.42 )
-
 [node name="LeftSign4" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1978.21, -495.602 )
 
-[node name="RightSign6" parent="." instance=ExtResource( 13 )]
-position = Vector2( -1067.05, 1489.33 )
+[node name="RightSign7" parent="." instance=ExtResource( 15 )]
+position = Vector2( 432.087, 961.327 )
+
+[node name="RightSign8" parent="." instance=ExtResource( 15 )]
+position = Vector2( -1061.56, 1489.34 )
+
+[node name="RightSign9" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1183.67, 1479.82 )
+
+[node name="RightSign10" parent="." instance=ExtResource( 15 )]
+position = Vector2( 3319.48, 1479.82 )
+
+[node name="RightSign11" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4266.09, 1489.34 )
+
+[node name="RightSign12" parent="." instance=ExtResource( 15 )]
+position = Vector2( 3387.17, 267.009 )
 
 [connection signal="body_entered" from="Spawn/SpawnArea" to="." method="_on_SpawnArea_body_entered"]
 [connection signal="body_exited" from="Spawn/SpawnArea" to="." method="_on_SpawnArea_body_exited"]
