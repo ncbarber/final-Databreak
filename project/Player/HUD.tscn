@@ -38,14 +38,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 256, 256 )
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 12 ) ],
+"frames": [ SubResource( 6 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -77,30 +77,41 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 256, 256 )
 
-[sub_resource type="SpriteFrames" id=14]
+[sub_resource type="SpriteFrames" id=13]
 animations = [ {
-"frames": [ SubResource( 13 ) ],
+"frames": [ SubResource( 12 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=14]
 size = 24
 font_data = ExtResource( 1 )
 
 [node name="HUD" type="CanvasLayer"]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_left = -2.1189
+margin_top = 450.272
+margin_right = 390.881
+margin_bottom = 504.272
+color = Color( 0.431373, 0, 1, 0.392157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="DataToCollect" type="Label" parent="."]
 margin_left = 5.0
-margin_top = 15.0
+margin_top = 461.974
 margin_right = 157.0
-margin_bottom = 46.0
+margin_bottom = 492.974
 custom_fonts/font = SubResource( 1 )
 text = "Data To Collect: "
 __meta__ = {
@@ -108,10 +119,10 @@ __meta__ = {
 }
 
 [node name="DoorUnlocked" type="Label" parent="."]
-margin_left = 5.0
-margin_top = 15.0
-margin_right = 157.0
-margin_bottom = 46.0
+margin_left = 3.94055
+margin_top = 462.093
+margin_right = 377.941
+margin_bottom = 493.093
 custom_fonts/font = SubResource( 1 )
 text = "The door is unlocked! Follow the arrows"
 __meta__ = {
@@ -119,17 +130,17 @@ __meta__ = {
 }
 
 [node name="Floppy" type="AnimatedSprite" parent="."]
-position = Vector2( 175, 30 )
+position = Vector2( 175, 475 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 3 )
 
 [node name="Floppy2" type="AnimatedSprite" parent="."]
-position = Vector2( 225, 30 )
+position = Vector2( 225, 475 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 3 )
 
 [node name="USB" type="AnimatedSprite" parent="."]
-position = Vector2( 275, 30 )
+position = Vector2( 275, 475 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 5 )
 
@@ -151,7 +162,7 @@ frames = SubResource( 11 )
 [node name="Blink" type="AnimatedSprite" parent="."]
 position = Vector2( 55.4394, 551.868 )
 scale = Vector2( 0.4, 0.4 )
-frames = SubResource( 14 )
+frames = SubResource( 13 )
 
 [node name="MovementLabel" type="Label" parent="."]
 margin_left = 110.953
@@ -180,7 +191,7 @@ margin_left = 110.873
 margin_top = 532.947
 margin_right = 239.873
 margin_bottom = 563.947
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 14 )
 text = "Blink is Ready!"
 __meta__ = {
 "_edit_use_anchors_": false

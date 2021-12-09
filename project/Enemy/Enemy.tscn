@@ -70,14 +70,14 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 63.2128, 7.07843 )
 
-[sub_resource type="Gradient" id=15]
+[sub_resource type="Gradient" id=14]
 offsets = PoolRealArray( 1.96182e-44, 0.286822, 0.472868, 0.596899, 1 )
 colors = PoolColorArray( 1, 0.956863, 0, 1, 1, 0.956863, 0.0156863, 1, 1, 1, 1, 0, 1, 0.974251, 0.403101, 0.596899, 1, 0.991087, 0.793381, 0.860465 )
 
-[sub_resource type="GradientTexture" id=16]
-gradient = SubResource( 15 )
+[sub_resource type="GradientTexture" id=15]
+gradient = SubResource( 14 )
 
-[sub_resource type="ParticlesMaterial" id=14]
+[sub_resource type="ParticlesMaterial" id=16]
 emission_shape = 1
 emission_sphere_radius = 0.01
 flag_disable_z = true
@@ -91,7 +91,7 @@ orbit_velocity = 0.0
 orbit_velocity_random = 1.0
 scale = 4.0
 scale_random = 1.0
-color_ramp = SubResource( 16 )
+color_ramp = SubResource( 15 )
 hue_variation_random = 0.74
 
 [node name="Enemy" type="KinematicBody2D"]
@@ -132,7 +132,6 @@ __meta__ = {
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 12 )
-frame = 7
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -174,7 +173,7 @@ amount = 10
 lifetime = 3.5
 speed_scale = 3.75
 explosiveness = 1.0
-process_material = SubResource( 14 )
+process_material = SubResource( 16 )
 
 [connection signal="body_entered" from="Light" to="." method="_on_Light_body_entered"]
 [connection signal="body_exited" from="Light" to="." method="_on_Light_body_exited"]
