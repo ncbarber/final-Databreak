@@ -36,7 +36,6 @@ func _on_SpawnArea_body_entered(_body) -> void:
 
 func _on_SpawnArea_body_exited(_body) -> void:
 	RoomGlobals.loading = false
-	SignalManager.emit_signal("exit_direction", DOOR_POSITION)
 
 
 func _on_DoorArea_body_entered(_body) -> void:

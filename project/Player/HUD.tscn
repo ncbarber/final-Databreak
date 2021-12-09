@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Common/Staatliches-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Collectables/Data/Databreak-USB.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Collectables/Abilities/JumpBoost/Databreak_Jumpboost.png" type="Texture" id=4]
 [ext_resource path="res://Collectables/Abilities/Invisibility/Databreak_Invisibility (2).png" type="Texture" id=5]
 [ext_resource path="res://Collectables/Abilities/Movement Speed/Databreak_MovementSpeed.png" type="Texture" id=6]
-[ext_resource path="res://Player/Databreak_ExitArrow.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -174,7 +173,3 @@ text = "Ability Ready in Xs"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="ExitArrow" type="Sprite" parent="."]
-position = Vector2( 949.481, 510.558 )
-texture = ExtResource( 7 )
