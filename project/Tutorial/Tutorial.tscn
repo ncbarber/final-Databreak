@@ -180,27 +180,23 @@ frame_0/texture = ExtResource( 8 )
 frame_1/texture = ExtResource( 9 )
 frame_1/delay_sec = 0.0
 
-[sub_resource type="DynamicFont" id=20]
-size = 34
-font_data = ExtResource( 7 )
-
 [sub_resource type="DynamicFont" id=13]
-size = 32
+size = 34
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=14]
-size = 35
+size = 32
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=15]
-size = 34
-font_data = ExtResource( 7 )
-
-[sub_resource type="DynamicFont" id=19]
-size = 34
+size = 35
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=16]
+size = 34
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=17]
 size = 34
 font_data = ExtResource( 7 )
 
@@ -208,7 +204,11 @@ font_data = ExtResource( 7 )
 size = 34
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=19]
+size = 34
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=20]
 size = 34
 font_data = ExtResource( 7 )
 
@@ -269,7 +269,7 @@ margin_left = -373.358
 margin_top = -403.63
 margin_right = 158.642
 margin_bottom = -359.63
-custom_fonts/font = SubResource( 20 )
+custom_fonts/font = SubResource( 13 )
 text = "To learn about the game, keep jumping up!"
 align = 1
 __meta__ = {
@@ -281,7 +281,7 @@ margin_left = 36.61
 margin_top = -716.284
 margin_right = 565.61
 margin_bottom = -675.284
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
 text = "Hold down 'w' or 'up' until you see a change!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -292,7 +292,7 @@ margin_left = -326.177
 margin_top = -1366.32
 margin_right = 269.823
 margin_bottom = -1321.32
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 15 )
 text = "This is an enemy drone. Don't let it detect you!
 Jump on top to deactivate it for a short time!"
 __meta__ = {
@@ -304,7 +304,7 @@ margin_left = 1511.41
 margin_top = -1806.25
 margin_right = 2215.41
 margin_bottom = -1762.25
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 16 )
 text = "This is an the invisibility ability! Press 'V' to activate it."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -318,9 +318,9 @@ margin_left = 227.702
 margin_top = -410.603
 margin_right = 1346.7
 margin_bottom = -272.603
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 17 )
 text = "This is a peice of data you collect.
-At the top of the screen it shows what data peices you need.
+At the bottom of the screen it shows what data peices you need.
 Find them all to be able to move on to the next level to collect more more of your data!"
 align = 1
 __meta__ = {
@@ -345,7 +345,7 @@ margin_left = -1411.19
 margin_top = -2693.0
 margin_right = -122.19
 margin_bottom = -2555.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 18 )
 text = "This is the Blink Ability!
  Press 'V' while moving to burst forward quickly and dodge through enemeies
 "
@@ -362,7 +362,7 @@ margin_left = 1588.16
 margin_top = -2577.45
 margin_right = 2142.16
 margin_bottom = -2486.45
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 19 )
 text = "This is the movement speed ability!
 It is always active whenever you collect it!"
 align = 1
@@ -378,7 +378,7 @@ margin_left = 327.005
 margin_top = -2720.8
 margin_right = 1124.0
 margin_bottom = -2535.8
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 20 )
 text = "This is the jump boost ability!
 When the ability is ready press 'w' or 'space' for a higher jump
 If you use your charged jump you'll jump even higher!

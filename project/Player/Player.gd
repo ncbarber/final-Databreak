@@ -227,6 +227,6 @@ func _handle_Floppy() -> void:
 		$Camera2D/HUD/Floppy2.visible = false
 	
 
-func _on_BlinkTimer_timeout():
+func _on_BlinkTimer_timeout() -> void:
 	blink = 0
 	SignalManager.emit_signal("blink_over")
