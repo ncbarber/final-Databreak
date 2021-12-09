@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Databreak_TitleSong.mp3-be21060c711349982e791a9a4caba225.mp3str"
+
+[deps]
+
+source_file="res://ScreenStart/Databreak_TitleSong.mp3"
+dest_files=[ "res://.import/Databreak_TitleSong.mp3-be21060c711349982e791a9a4caba225.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

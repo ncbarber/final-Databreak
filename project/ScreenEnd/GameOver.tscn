@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ScreenEnd/ScreenEnd.tscn" type="PackedScene" id=1]
+
+[node name="Control" type="Node2D"]
+
+[node name="ScreenEnd" parent="." instance=ExtResource( 1 )]

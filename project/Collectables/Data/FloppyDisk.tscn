@@ -1,9 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Collectables/Data/Databreak-Floppy.png" type="Texture" id=1]
 [ext_resource path="res://Common/DatabreakBinary1.png" type="Texture" id=2]
 [ext_resource path="res://Common/DatabreakBinary0.png" type="Texture" id=3]
-
+[ext_resource path="res://Collectables/Data/FloppyDisk.gd" type="Script" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -82,12 +82,13 @@ frame_1/texture = ExtResource( 2 )
 frame_1/delay_sec = 0.0
 
 [node name="FloppyDisk" type="Area2D"]
+script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 7 )
 animation = "idle"
-frame = 4
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -109,3 +110,5 @@ amount = 4
 visibility_rect = Rect2( -50, -25, 75, 75 )
 process_material = SubResource( 11 )
 texture = SubResource( 12 )
+
+[connection signal="body_entered" from="." to="." method="_on_FloppyDisk_body_entered"]

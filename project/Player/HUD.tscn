@@ -1,0 +1,180 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Common/Staatliches-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Collectables/Data/Databreak-USB.png" type="Texture" id=2]
+[ext_resource path="res://Collectables/Data/Databreak-Floppy.png" type="Texture" id=3]
+[ext_resource path="res://Collectables/Abilities/JumpBoost/Databreak_Jumpboost.png" type="Texture" id=4]
+[ext_resource path="res://Collectables/Abilities/Invisibility/Databreak_Invisibility (2).png" type="Texture" id=5]
+[ext_resource path="res://Collectables/Abilities/Blink/Databreak_Blink.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="DataToCollect" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 15.0
+margin_right = 157.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+text = "Data To Collect: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DoorUnlocked" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 15.0
+margin_right = 157.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+text = "The door is unlocked! Follow the arrow"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Floppy" type="AnimatedSprite" parent="."]
+position = Vector2( 175, 30 )
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 3 )
+
+[node name="Floppy2" type="AnimatedSprite" parent="."]
+position = Vector2( 225, 30 )
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 3 )
+
+[node name="USB" type="AnimatedSprite" parent="."]
+position = Vector2( 275, 30 )
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 5 )
+
+[node name="Movement" type="AnimatedSprite" parent="."]
+position = Vector2( 50, 550 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 7 )
+
+[node name="Jump" type="AnimatedSprite" parent="."]
+position = Vector2( 50, 550 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 9 )
+
+[node name="Invis" type="AnimatedSprite" parent="."]
+position = Vector2( 50, 550 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 11 )
+
+[node name="MovementLabel" type="Label" parent="."]
+margin_left = 110.953
+margin_top = 534.674
+margin_right = 262.953
+margin_bottom = 565.674
+custom_fonts/font = SubResource( 1 )
+text = "Increased Movement Speed!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JumpLabel" type="Label" parent="."]
+margin_left = 110.953
+margin_top = 534.674
+margin_right = 262.953
+margin_bottom = 565.674
+custom_fonts/font = SubResource( 1 )
+text = "Jump Is Ready!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InvisLabel" type="Label" parent="."]
+margin_left = 110.953
+margin_top = 534.674
+margin_right = 262.953
+margin_bottom = 565.674
+custom_fonts/font = SubResource( 1 )
+text = "Invisibility Is Ready!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Counter" type="Label" parent="."]
+margin_left = 110.286
+margin_top = 534.007
+margin_right = 272.286
+margin_bottom = 565.007
+custom_fonts/font = SubResource( 1 )
+text = "Ability Ready in Xs"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blink" type="AnimatedSprite" parent="."]
+position = Vector2( 50, 550 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 7 )
