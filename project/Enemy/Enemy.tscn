@@ -7,7 +7,7 @@
 [ext_resource path="res://Enemy/Databreak_DroneAlarm.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 80.5256, 1.98752 )
+extents = Vector2( 98.3325, 1.52374 )
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
@@ -68,7 +68,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 63.2128, 7.07843 )
+extents = Vector2( 70.9178, 5.78506 )
 
 [sub_resource type="Gradient" id=14]
 offsets = PoolRealArray( 1.96182e-44, 0.286822, 0.472868, 0.596899, 1 )
@@ -104,7 +104,7 @@ one_shot = true
 autostart = true
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="."]
-position = Vector2( 0.364838, -63.7808 )
+position = Vector2( -0.825714, -63.384 )
 shape = SubResource( 1 )
 
 [node name="Light" type="Area2D" parent="."]
@@ -132,6 +132,7 @@ __meta__ = {
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 12 )
+frame = 5
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -140,9 +141,9 @@ __meta__ = {
 [node name="KillBox" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KillBox"]
-position = Vector2( -9.1096, 1.82348 )
-scale = Vector2( 0.80921, 0.787011 )
-polygon = PoolVector2Array( -71.1924, 51.361, 93.95, 51.361, 116.597, -76.5892, -95.6285, -77.8083 )
+position = Vector2( -8.92346, 1.82348 )
+scale = Vector2( 0.810379, 0.787011 )
+polygon = PoolVector2Array( -84.1383, 57.912, 101.462, 57.912, 141.618, -77.7312, -116.949, -78.2354 )
 
 [node name="DisengageTimer" type="Timer" parent="."]
 wait_time = 3.5
