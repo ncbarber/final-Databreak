@@ -27,6 +27,7 @@ func _ready() -> void:
 	$Camera2D/HUD/Movement.visible = false
 	$Camera2D/HUD/Invis.visible = false
 	$Camera2D/HUD/Jump.visible = false
+	$Camera2D/HUD/Blink.visible = false
 
 
 func _set_inputs() -> void:
@@ -101,9 +102,11 @@ func _set_inputs() -> void:
 			$AbilityCooldown.start()
 			
 		if RoomGlobals.ability_get() == 'blink':
+			is_blocked = true
 			blink = 12000
 			SignalManager.emit_signal("blink")
 			$BlinkTimer.start()
+			$AbilityCooldown.start()
 
 	# Here we check what ability we currently have, and then update the HUD as needed as well as handle 
 	# when an ability is used, like invisibility and the jump boost
@@ -111,6 +114,7 @@ func _set_inputs() -> void:
 		$Camera2D/HUD/Movement.visible = false
 		$Camera2D/HUD/Invis.visible = false
 		$Camera2D/HUD/Jump.visible = true
+		$Camera2D/HUD/Blink.visible = false
 		if is_blocked:
 			$Camera2D/HUD/Jump.modulate.a8 = 50
 		if !is_blocked:
@@ -120,6 +124,7 @@ func _set_inputs() -> void:
 		$Camera2D/HUD/Movement.visible = false
 		$Camera2D/HUD/Invis.visible = true
 		$Camera2D/HUD/Jump.visible = false
+		$Camera2D/HUD/Blink.visible = false
 		if is_blocked:
 			$Camera2D/HUD/Invis.modulate.a8 = 50
 		if !is_blocked:
@@ -129,15 +134,18 @@ func _set_inputs() -> void:
 		$Camera2D/HUD/Movement.visible = true
 		$Camera2D/HUD/Invis.visible = false
 		$Camera2D/HUD/Jump.visible = false
-		
+		$Camera2D/HUD/Blink.visible = false
 		
 	if RoomGlobals.ability_get() == 'blink':
-		
 		$Camera2D/HUD/Movement.visible = false
 		$Camera2D/HUD/Invis.visible = false
 		$Camera2D/HUD/Jump.visible = false
-		
-		
+		$Camera2D/HUD/Blink.visible = true
+		if is_blocked:
+			$Camera2D/HUD/Blink.modulate.a8 = 50
+		if !is_blocked:
+			$Camera2D/HUD/Blink.modulate.a8 = 255
+
 
 func _physics_process(delta) -> void:
 	_set_inputs()

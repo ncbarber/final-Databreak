@@ -40,6 +40,8 @@ func _ready() -> void:
 	emit_signal('unlock')
 	emit_signal("invisible")
 	emit_signal("visible")
+	emit_signal("blink")
+	emit_signal("blink_over")
 
 
 func _on_floppy_entered() -> void:

@@ -5,7 +5,7 @@
 [ext_resource path="res://Collectables/Data/Databreak-Floppy.png" type="Texture" id=3]
 [ext_resource path="res://Collectables/Abilities/JumpBoost/Databreak_Jumpboost.png" type="Texture" id=4]
 [ext_resource path="res://Collectables/Abilities/Invisibility/Databreak_Invisibility (2).png" type="Texture" id=5]
-[ext_resource path="res://Collectables/Abilities/Movement Speed/Databreak_MovementSpeed.png" type="Texture" id=6]
+[ext_resource path="res://Collectables/Abilities/Blink/Databreak_Blink.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -37,14 +37,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 256, 256 )
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 6 ) ],
+"frames": [ SubResource( 12 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -118,3 +118,8 @@ frames = SubResource( 9 )
 position = Vector2( 50, 550 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 11 )
+
+[node name="Blink" type="AnimatedSprite" parent="."]
+position = Vector2( 50, 550 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 7 )
