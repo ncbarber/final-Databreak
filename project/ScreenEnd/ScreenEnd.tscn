@@ -95,8 +95,7 @@ custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0.298039, 0, 0, 1 )
 text = "You've Been Caught
 
-Data is Leaked
-"
+Data is Leaked"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
