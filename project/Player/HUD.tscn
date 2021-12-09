@@ -95,7 +95,7 @@ margin_top = 15.0
 margin_right = 157.0
 margin_bottom = 46.0
 custom_fonts/font = SubResource( 1 )
-text = "The door is unlocked! Follow the arrow"
+text = "The door is unlocked! Follow the arrows"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -130,6 +130,11 @@ position = Vector2( 50, 550 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 11 )
 
+[node name="Blink" type="AnimatedSprite" parent="."]
+position = Vector2( 50, 550 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 7 )
+
 [node name="MovementLabel" type="Label" parent="."]
 margin_left = 110.953
 margin_top = 534.674
@@ -163,6 +168,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BlinkLabel" type="Label" parent="."]
+margin_left = 110.953
+margin_top = 534.674
+margin_right = 288.953
+margin_bottom = 565.674
+custom_fonts/font = SubResource( 1 )
+text = "Blink Is Ready!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Counter" type="Label" parent="."]
 margin_left = 110.286
 margin_top = 534.007
@@ -173,8 +189,3 @@ text = "Ability Ready in Xs"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Blink" type="AnimatedSprite" parent="."]
-position = Vector2( 50, 550 )
-scale = Vector2( 0.4, 0.4 )
-frames = SubResource( 7 )

@@ -37,6 +37,7 @@ func _start_game() -> void:
 
 
 func _next_room(direction) -> void:
+	ability_set('')
 	spawn_location = direction
 	if(direction):
 		var room_number;

@@ -35,6 +35,7 @@ func _ready() -> void:
 	$Camera2D/HUD/DataToCollect.visible = true
 	$Camera2D/HUD/DoorUnlocked.visible = false
 	$Camera2D/HUD/Blink.visible = false
+	$Camera2D/HUD/BlinkLabel.visible = false
 
 
 func _set_inputs() -> void:
@@ -123,6 +124,7 @@ func _set_inputs() -> void:
 		$Camera2D/HUD/Jump.visible = true
 		$Camera2D/HUD/MovementLabel.visible = false
 		$Camera2D/HUD/InvisLabel.visible = false
+		$Camera2D/HUD/BlinkLabel.visible = false
 		$Camera2D/HUD/Blink.visible = false
 		if is_blocked:
 			$Camera2D/HUD/Jump.modulate.a8 = 50
@@ -139,6 +141,7 @@ func _set_inputs() -> void:
 		$Camera2D/HUD/Jump.visible = false
 		$Camera2D/HUD/MovementLabel.visible = false
 		$Camera2D/HUD/JumpLabel.visible = false
+		$Camera2D/HUD/BlinkLabel.visible = false
 		$Camera2D/HUD/Blink.visible = false
 		if is_blocked:
 			$Camera2D/HUD/Invis.modulate.a8 = 50
@@ -156,6 +159,7 @@ func _set_inputs() -> void:
 		$Camera2D/HUD/MovementLabel.visible = true
 		$Camera2D/HUD/InvisLabel.visible = false
 		$Camera2D/HUD/JumpLabel.visible = false
+		$Camera2D/HUD/BlinkLabel.visible = false
 		$Camera2D/HUD/Counter.visible = false
 		$Camera2D/HUD/Blink.visible = false
 		
@@ -166,8 +170,12 @@ func _set_inputs() -> void:
 		$Camera2D/HUD/Blink.visible = true
 		if is_blocked:
 			$Camera2D/HUD/Blink.modulate.a8 = 50
+			$Camera2D/HUD/Counter.visible = true
+			$Camera2D/HUD/BlinkLabel.visible = false
 		if !is_blocked:
 			$Camera2D/HUD/Blink.modulate.a8 = 255
+			$Camera2D/HUD/Counter.visible = false
+			$Camera2D/HUD/BlinkLabel.visible = true
 
 
 func _physics_process(delta) -> void:
@@ -180,9 +188,11 @@ func _physics_process(delta) -> void:
 		floppy_collected = 0
 		$Camera2D/HUD/DataToCollect.visible = false
 		$Camera2D/HUD/DoorUnlocked.visible = true
+		
 	velocity.y += gravity * delta
 	if is_jumping and is_on_floor() or is_jumping and is_on_ceiling():
 		is_jumping = false
+		
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 
 func _on_InvisibilityTimer_timeout() -> void:
