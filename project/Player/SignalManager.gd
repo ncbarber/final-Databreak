@@ -12,8 +12,8 @@ signal send_main_menu
 signal unlock 
 signal door_unlocked
 
+signal exit_location(vector)
 signal exit_direction(vector)
-signal exit_door_location(vector)
 
 signal invisible
 signal visible
@@ -22,9 +22,6 @@ signal player_visible
 
 signal handle_floppy
 signal handle_usb
-
-
-var doorVector := Vector2()
 
 
 func _ready() -> void:
@@ -43,7 +40,7 @@ func _ready() -> void:
 	emit_signal('unlock')
 	emit_signal("invisible")
 	emit_signal("visible")
-	emit_signal("exit_direction", doorVector)
+	emit_signal("exit_direction", Vector2())
 
 
 func _on_floppy_entered() -> void:
@@ -75,4 +72,5 @@ func _handle_visible() -> void:
 
 
 func _handle_exit_direction(vec) -> void:
-	emit_signal("exit_door_location", vec)
+#	print(vec)
+	emit_signal("exit_location", vec)

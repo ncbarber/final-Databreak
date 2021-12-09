@@ -6,7 +6,7 @@ var jump_speed := -1250
 var run_speed := 375
 var gravity := 3200
 var velocity := Vector2()
-var exit_location := Vector2()
+var door_location := Vector2()
 var is_jumping := false
 var is_crouched := false
 var lives_remaining := 3
@@ -24,7 +24,7 @@ func _ready() -> void:
 	# On ready we set up the global connections that will communicate to change items on the HUD
 	var _connectionFloppy = SignalManager.connect("handle_floppy", self, "_handle_Floppy")
 	var _connectionUSB = SignalManager.connect("handle_usb", self, "_handle_USB")
-	var _connectionExitDirection = SignalManager.connect("exit_door_location", self, "getExitDirection")
+	var _connectionExitDirection = SignalManager.connect("exit_location", self, "_handle_Door_Location")
 	$Camera2D/HUD/Movement.visible = false
 	$Camera2D/HUD/Invis.visible = false
 	$Camera2D/HUD/Jump.visible = false
@@ -150,6 +150,8 @@ func _set_inputs() -> void:
 
 func _physics_process(delta) -> void:
 	_set_inputs()
+	$Camera2D/HUD/ExitArrow.rotation_degrees = arrow_angle()
+#	arrow_angle()
 	timer = $AbilityCooldown.time_left
 	$Camera2D/HUD/Counter.text = "Ability Ready in: %d s" % timer
 	if floppy_collected == 2 and usb_collected == 1:
@@ -162,7 +164,6 @@ func _physics_process(delta) -> void:
 	if is_jumping and is_on_floor() or is_jumping and is_on_ceiling():
 		is_jumping = false
 	velocity = move_and_slide(velocity, Vector2(0, -1))
-
 
 func _on_InvisibilityTimer_timeout() -> void:
 	modulate.a8 = 255
@@ -186,9 +187,51 @@ func _handle_Floppy() -> void:
 		$Camera2D/HUD/Floppy2.visible = false
 
 
-func getExitDirection(vector) -> void:
-	#Vector2 direction = vector
-	#float angle = Vector2.Forward.AngleTo(vector)
-	print("Here")
-	print(vector)
-#	$Camera2D/HUD/ExitArrow.look_at(vector)
+func _handle_Door_Location(vec) -> void:
+#	print("Player")
+	print(vec)
+	door_location = vec
+
+
+func arrow_angle() -> float:
+	var angle
+	var quadrant = 0
+	var hemi
+	var height 
+	var length
+	if position.x < door_location.x:
+		hemi = 1
+		if position.y > door_location.y:
+			quadrant = 4
+		else:
+			quadrant = 3
+	else:
+		hemi = 2
+		if position.y > door_location.y:
+			quadrant = 1
+		else:
+			quadrant = 2
+#	match quadrant:
+#		1:
+#			height = position.y - door_location.y
+#			length = position.x - door_location.x
+#		2:
+#			height = door_location.y - position.y
+#			length = position.x - door_location.x
+#		3:
+#			height = door_location.y - position.y
+#			length = door_location.x - position.x
+#		4:
+#			height = position.y - door_location.y
+#			length = door_location.x - position.x
+			
+	match hemi:
+		1:
+			length = door_location.x - position.x
+			height = door_location.y - position.y
+		2:
+			length = position.x - door_location.x
+			height = door_location.y - position.y
+	angle = tan(height/length)
+	print(rad2deg(angle)+90)
+	return rad2deg(angle)+90
