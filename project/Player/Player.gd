@@ -39,7 +39,6 @@ func _ready() -> void:
 	$Camera2D/HUD/BlinkLabel.visible = false
 #	RoomGlobals.ability_set('')
 
-
 func _set_inputs() -> void:
 	velocity.x = 0
 	# Here we set up the input variables for all of our movement and the ability
